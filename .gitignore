@@ -1,0 +1,40 @@
+# General
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.swp
+*.bak
+
+# Environment
+.env
+.env.*
+**/appsettings.Development.json
+
+# Local tooling
+.claude/
+
+# Build outputs
+**/bin/
+**/obj/
+**/dist/
+**/build/
+
+# Dependencies
+**/node_modules/
+
+# Visual Studio / Rider
+.vs/
+.idea/
+*.user
+*.suo
+*.csproj.user
+*.userosscache
+*.sln.docstates
+
+# Publish / artifacts
+**/publish/
+**/artifacts/
+
+# Logs
+**/logs/

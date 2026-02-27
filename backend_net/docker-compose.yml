@@ -1,0 +1,31 @@
+services:
+  # Backend API - connects to shared VPS database via SSH tunnel
+  # IMPORTANT: SSH tunnel must be running on host machine before starting this container
+  # Start tunnel: ssh -L 1433:localhost:1433 root@your_vps_ip -N
+  backend_api:
+    build:
+      context: ..
+      dockerfile: backend_net/Dockerfile
+    container_name: backend_net_api
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+      - "8081:8081"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:8080
+      # Disable Redis - use MemoryCache (Redis not in Docker stack)
+      - ConnectionStrings__Redis=
+      # Connect to host's localhost:1433 (forwarded via SSH tunnel)
+      # host.docker.internal works on Windows/Mac Docker Desktop
+      # On Linux, use: 172.17.0.1 or network_mode: host
+      - ConnectionStrings__DefaultConnection=Server=host.docker.internal,1433;Database=backend_net_dev_db;User Id=dev_user;Password=e3810?J:IVht;TrustServerCertificate=True;Encrypt=False;
+    extra_hosts:
+      # Maps host.docker.internal to host machine's IP
+      - "host.docker.internal:host-gateway"
+    networks:
+      - backend_network
+
+networks:
+  backend_network:
+    driver: bridge

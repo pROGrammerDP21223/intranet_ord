@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>One Rank Digital - Admin Dashboard</title>
+    <!-- Theme CSS -->
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/app.min.css" rel="stylesheet" type="text/css" />
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Theme JS - Load after DOM is ready -->
+    <script>
+      // Ensure bootstrap is available globally after loading
+      document.addEventListener('DOMContentLoaded', function() {
+        // Bootstrap will be available after the script loads
+        if (typeof bootstrap !== 'undefined') {
+          window.bootstrap = bootstrap;
+        }
+      });
+    </script>
+    <script src="/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/libs/simplebar/simplebar.min.js"></script>
+    <script src="/assets/libs/simple-datatables/umd/simple-datatables.js"></script>
+    <script src="/assets/js/app.js"></script>
+  </head>
+  <body id="body">
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

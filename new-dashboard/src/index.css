@@ -1,0 +1,95 @@
+/* Base styles - minimal to avoid conflicts with theme CSS */
+@import url(https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family:Roboto,sans-serif;
+}
+
+
+#root {
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Spinner for loading states */
+.spinner-border {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  vertical-align: text-bottom;
+  border: 0.25em solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: spinner-border 0.75s linear infinite;
+}
+
+@keyframes spinner-border {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* Global Modal Overlay Styles - Matching Theme Structure */
+.modal.fade.show,
+.modal.show.d-block {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 1050 !important;
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  backdrop-filter: blur(2px) !important;
+  -webkit-backdrop-filter: blur(2px) !important;
+  overflow-y: auto !important;
+}
+
+/* Modal dialog positioning - theme compatible */
+.modal.fade.show .modal-dialog,
+.modal.show.d-block .modal-dialog {
+  position: relative !important;
+  z-index: 1051 !important;
+  margin: 1.75rem auto !important;
+}
+
+/* Modal backdrop for separate backdrop elements */
+.modal-backdrop {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 1049 !important;
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  backdrop-filter: blur(2px) !important;
+  -webkit-backdrop-filter: blur(2px) !important;
+}
+
+.modal-backdrop.fade {
+  opacity: 0;
+  transition: opacity 0.15s linear;
+}
+
+.modal-backdrop.fade.show {
+  opacity: 1;
+}
+
+/* Prevent body scroll when modal is open */
+body.modal-open {
+  overflow: hidden !important;
+  padding-right: 0 !important;
+}

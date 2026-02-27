@@ -1,0 +1,45 @@
+/* Custom overrides for single sidebar layout */
+.leftbar-tab-menu {
+  width: 260px !important;
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+}
+
+
+.leftbar-tab-menu .menu-body {
+  padding-left: 0 !important;
+}
+
+.leftbar-tab-menu .topbar-left {
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+}
+
+.page-wrapper,
+.navbar-custom {
+  margin-left: 260px !important;
+}
+
+.enlarge-menu .leftbar-tab-menu {
+  width: 70px !important;
+}
+
+.enlarge-menu .page-wrapper,
+.enlarge-menu .navbar-custom {
+  margin-left: 70px !important;
+}
+
+/* Dark theme sidebar */
+.dark-mode .leftbar-tab-menu {
+  background: #1e1e1e !important;
+}
+
+.dark-mode .leftbar-tab-menu .nav-link {
+  color: #cbd5e1 !important;
+}
+
+.dark-mode .leftbar-tab-menu .nav-link:hover,
+.dark-mode .leftbar-tab-menu .nav-link.active {
+  background: #2a2a2a !important;
+  color: #ffffff !important;
+}
