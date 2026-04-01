@@ -6,10 +6,12 @@ import { clientAPI } from '../services/api';
 import { useRole } from '../hooks/useRole';
 import { showToast } from '../utils/toast';
 import { useLoading } from '../contexts/LoadingContext';
+import SendMailModal from '../components/SendMailModal';
 
 const ClientsList = () => {
   const [clients, setClients] = useState([]);
   const [error, setError] = useState('');
+  const [mailClient, setMailClient] = useState(null); // client selected for send-mail popup
   const role = useRole();
   const { startLoading, stopLoading } = useLoading();
 
@@ -34,6 +36,23 @@ const ClientsList = () => {
       setError(errorMsg);
       showToast.error(errorMsg);
       console.error('Failed to load clients:', err);
+    } finally {
+      stopLoading();
+    }
+  };
+
+  const handleTogglePremium = async (id, currentValue) => {
+    try {
+      startLoading(currentValue ? 'Removing from premium...' : 'Marking as premium...');
+      const response = await clientAPI.togglePremium(id);
+      if (response.success) {
+        setClients(prev => prev.map(c => c.id === id ? { ...c, isPremium: response.data.isPremium } : c));
+        showToast.success(response.message);
+      } else {
+        showToast.error(response.message || 'Failed to update premium status');
+      }
+    } catch (err) {
+      showToast.error('An error occurred');
     } finally {
       stopLoading();
     }
@@ -78,6 +97,7 @@ const ClientsList = () => {
   };
 
   return (
+    <>
     <Layout>
       <div className="row">
         <div className="col-12">
@@ -137,9 +157,25 @@ const ClientsList = () => {
                     render: (value) => <strong>{formatCurrency(value)}</strong>
                   },
                   {
+                    key: 'isPremium',
+                    header: 'Premium',
+                    cellStyle: { textAlign: 'center', width: '90px' },
+                    render: (value, row) => role.canEdit ? (
+                      <button
+                        className={`btn btn-sm ${value ? 'btn-warning' : 'btn-outline-secondary'}`}
+                        title={value ? 'Remove from premium' : 'Mark as premium'}
+                        onClick={(e) => { e.stopPropagation(); handleTogglePremium(row.id, value); }}
+                      >
+                        <i className={`fas fa-star${value ? '' : ' text-muted'}`}></i>
+                      </button>
+                    ) : (
+                      value ? <span className="badge bg-warning text-dark"><i className="fas fa-star me-1"></i>Premium</span> : <span className="text-muted">-</span>
+                    )
+                  },
+                  {
                     key: 'actions',
                     header: 'Actions',
-                    cellStyle: { textAlign: 'center', width: '180px' },
+                    cellStyle: { textAlign: 'center', width: '220px' },
                     render: (value, row) => (
                       <div className="d-flex gap-1 justify-content-center">
                         <Link
@@ -160,6 +196,16 @@ const ClientsList = () => {
                             <i className="fas fa-edit"></i>
                           </Link>
                         )}
+                        <button
+                          className="btn btn-sm btn-success"
+                          title="Send Mail"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setMailClient(row);
+                          }}
+                        >
+                          <i className="fas fa-envelope"></i>
+                        </button>
                         {role.canDelete && (
                           <button
                             className="btn btn-sm btn-danger"
@@ -187,6 +233,14 @@ const ClientsList = () => {
         </div>
       </div>
     </Layout>
+
+    {mailClient && (
+      <SendMailModal
+        client={mailClient}
+        onClose={() => setMailClient(null)}
+      />
+    )}
+    </>
   );
 };
 

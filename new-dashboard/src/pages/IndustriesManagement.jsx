@@ -2,9 +2,11 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Layout from '../components/Layout';
 import DataTable from '../components/DataTable';
+import RichTextEditor from '../components/RichTextEditor';
 import { industryAPI, imageUploadAPI } from '../services/api';
 
 const IndustriesManagement = () => {
+  const stripHtml = (html) => (html || '').replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
   const [industries, setIndustries] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -208,7 +210,7 @@ const IndustriesManagement = () => {
                       header: 'Description',
                       render: (value) => (
                         <div style={{ maxWidth: '300px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                          {value || '-'}
+                          {stripHtml(value) || '-'}
                         </div>
                       )
                     },
@@ -319,11 +321,10 @@ const IndustriesManagement = () => {
                   </div>
                   <div className="mb-3">
                     <label className="form-label">Description</label>
-                    <textarea
-                      className="form-control"
-                      rows="3"
+                    <RichTextEditor
                       value={formData.description}
-                      onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                      onChange={(content) => setFormData({ ...formData, description: content })}
+                      placeholder="Enter industry description..."
                     />
                   </div>
                   <div className="mb-3">

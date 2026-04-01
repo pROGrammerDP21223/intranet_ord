@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-// In dev, use empty string so requests go to same origin (Vite proxy forwards /api to backend)
-const API_BASE_URL = import.meta.env.VITE_API_URL || (import.meta.env.DEV ? '' : 'http://localhost:8080');
+// Always default to same-origin in non-dev to avoid browser localhost/CORS issues behind reverse proxy.
+const API_BASE_URL = import.meta.env.VITE_API_URL || '';
 
 const api = axios.create({
   baseURL: API_BASE_URL,
@@ -194,6 +194,18 @@ export const clientAPI = {
   },
   approveClient: async (id) => {
     const response = await api.post(`/api/clients/${id}/approve`);
+    return response.data;
+  },
+  getEmailInfo: async (id) => {
+    const response = await api.get(`/api/clients/${id}/email-info`);
+    return response.data;
+  },
+  sendFormEmail: async (id, emails) => {
+    const response = await api.post(`/api/clients/${id}/send-form-email`, { emails });
+    return response.data;
+  },
+  togglePremium: async (id) => {
+    const response = await api.patch(`/api/clients/${id}/toggle-premium`);
     return response.data;
   },
 };
@@ -1136,6 +1148,94 @@ export const cacheStatisticsAPI = {
   },
   clearStatistics: async () => {
     const response = await api.post('/api/cachestatistics/clear');
+    return response.data;
+  },
+};
+
+// Free Registrations API (Admin, Owner, SalesManager)
+export const freeRegistrationAPI = {
+  getAll: async (status = null) => {
+    const params = status ? `?status=${status}` : '';
+    const response = await api.get(`/api/free-registrations${params}`);
+    return response.data;
+  },
+  getById: async (id) => {
+    const response = await api.get(`/api/free-registrations/${id}`);
+    return response.data;
+  },
+  approve: async (id, notes = '') => {
+    const response = await api.post(`/api/free-registrations/${id}/approve`, { notes });
+    return response.data;
+  },
+  reject: async (id, reason) => {
+    const response = await api.post(`/api/free-registrations/${id}/reject`, { reason });
+    return response.data;
+  },
+  updateNotes: async (id, notes) => {
+    const response = await api.put(`/api/free-registrations/${id}/notes`, { notes });
+    return response.data;
+  },
+  delete: async (id) => {
+    const response = await api.delete(`/api/free-registrations/${id}`);
+    return response.data;
+  },
+  getStats: async () => {
+    const response = await api.get('/api/free-registrations/stats');
+    return response.data;
+  },
+};
+
+// Ordpanel Enquiries API (Admin, Owner only)
+export const ordpanelEnquiryAPI = {
+  getAll: async (filters = {}) => {
+    const params = new URLSearchParams();
+    if (filters.status) params.append('status', filters.status);
+    if (filters.pageType) params.append('pageType', filters.pageType);
+    if (filters.from) params.append('from', filters.from);
+    if (filters.to) params.append('to', filters.to);
+    const qs = params.toString();
+    const response = await api.get(`/api/ordpanel-enquiries${qs ? '?' + qs : ''}`);
+    return response.data;
+  },
+  getById: async (id) => {
+    const response = await api.get(`/api/ordpanel-enquiries/${id}`);
+    return response.data;
+  },
+  updateStatus: async (id, status) => {
+    const response = await api.put(`/api/ordpanel-enquiries/${id}/status`, { status });
+    return response.data;
+  },
+  delete: async (id) => {
+    const response = await api.delete(`/api/ordpanel-enquiries/${id}`);
+    return response.data;
+  },
+  getStats: async () => {
+    const response = await api.get('/api/ordpanel-enquiries/stats');
+    return response.data;
+  },
+};
+
+// Contact Forms API (Admin, Owner only)
+export const contactFormAPI = {
+  getAll: async (status = null) => {
+    const params = status ? `?status=${status}` : '';
+    const response = await api.get(`/api/contact-forms${params}`);
+    return response.data;
+  },
+  getById: async (id) => {
+    const response = await api.get(`/api/contact-forms/${id}`);
+    return response.data;
+  },
+  updateStatus: async (id, status) => {
+    const response = await api.put(`/api/contact-forms/${id}/status`, { status });
+    return response.data;
+  },
+  delete: async (id) => {
+    const response = await api.delete(`/api/contact-forms/${id}`);
+    return response.data;
+  },
+  getStats: async () => {
+    const response = await api.get('/api/contact-forms/stats');
     return response.data;
   },
 };

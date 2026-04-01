@@ -224,10 +224,16 @@ namespace backend_net
                     }
                     else
                     {
-                        // Strict CORS for production
+                        // Strict CORS for production — BaseUrl plus optional extra origins (e.g. dashboard + ordpanel subdomains)
+                        var extraOrigins = builder.Configuration.GetSection("Frontend:AllowedOrigins").Get<string[]>() ?? Array.Empty<string>();
+                        var origins = new List<string> { frontendUrl };
+                        foreach (var o in extraOrigins.Where(x => !string.IsNullOrWhiteSpace(x)).Select(x => x.Trim()))
+                        {
+                            if (!origins.Contains(o)) origins.Add(o);
+                        }
                         options.AddPolicy("AllowFrontend", policy =>
                         {
-                            policy.WithOrigins(frontendUrl)
+                            policy.WithOrigins(origins.ToArray())
                                   .AllowAnyHeader()
                                   .AllowAnyMethod()
                                   .AllowCredentials()
@@ -252,13 +258,7 @@ namespace backend_net
 
                 builder.Services.AddHangfireServer();
 
-                // SignalR - Configure with CORS support
-                builder.Services.AddSignalR(options =>
-                {
-                    options.EnableDetailedErrors = builder.Environment.IsDevelopment();
-                });
-
-                // SignalR Notification Service
+                // Notification (no-op stub - SignalR removed)
                 builder.Services.AddScoped<ISignalRNotificationService, SignalRNotificationService>();
 
                 // Export Service
@@ -323,7 +323,7 @@ namespace backend_net
                 // Ensure IHttpClientFactory is registered for WebhookService
                 builder.Services.AddHttpClient();
 
-                // Data Protection - Configure key persistence for Docker containers
+                // Data Protection - Configure key persistence
                 var dataProtectionKeysPath = Path.Combine(
                     Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
                     "DataProtection-Keys");
@@ -431,6 +431,7 @@ namespace backend_net
                                 await RoleSeederService.SeedRolesAsync(context);
                                 await ServiceSeederService.SeedServicesAsync(context);
                                 await EmailTemplateSeederService.SeedEmailTemplatesAsync(context);
+                                await IndustrySeederService.SeedIndustriesAsync(context);
                             }
                         }
                     }
@@ -531,9 +532,6 @@ namespace backend_net
                     RequestPath = "/uploads"
                 });
 
-                // SignalR Hub (must be mapped before MapControllers for proper routing)
-                app.MapHub<Hubs.NotificationHub>("/notificationHub");
-                
                 app.MapControllers();
                 app.MapFallbackToFile("index.html");
 
@@ -541,7 +539,7 @@ namespace backend_net
 
                 await app.RunAsync();
             }
-            catch (Exception ex)
+            catch (Exception ex) when (ex is not Microsoft.Extensions.Hosting.HostAbortedException)
             {
                 Serilog.Log.Fatal(ex, "Application failed to start");
                 throw;

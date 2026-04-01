@@ -13,6 +13,23 @@
   width: 100%;
 }
 
+/* Auth pages: dark logo on dark header — light pad so mark stays readable */
+.auth-header-box .auth-logo-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 0.85rem;
+  border-radius: 0.5rem;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+.auth-header-box .auth-logo {
+  display: block;
+}
+.auth-header-box .auth-subtitle {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
 /* Spinner for loading states */
 .spinner-border {
   display: inline-block;

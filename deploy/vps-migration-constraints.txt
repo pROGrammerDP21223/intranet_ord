@@ -1,0 +1,7 @@
+VPS migration (72.61.248.96 / srv1244744) — out of scope, do not change:
+
+  - spark-group.in / www.spark-group.in
+  - Nginx: /etc/nginx/sites-available/spark-group.in (and sites-enabled symlink)
+  - Files: /var/www/spark-group.in
+
+This is a separate website; only migrate/replace intranet, backend API, ordpanel, and related ordbusinesshub / onerankdigital hosts as planned.

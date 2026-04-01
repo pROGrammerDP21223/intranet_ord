@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import Layout from '../components/Layout';
-import { clientAPI, serviceAPI } from '../services/api';
+import { clientAPI, serviceAPI, imageUploadAPI } from '../services/api';
 import { useRole } from '../hooks/useRole';
 import { showToast } from '../utils/toast';
 import { useLoading } from '../contexts/LoadingContext';
@@ -16,7 +16,6 @@ const ClientForm = () => {
   
   const [formData, setFormData] = useState({
     // Form Details
-    customerNo: 'ORD-2024-001',
     formDate: new Date().toISOString().split('T')[0],
     amountWithoutGst: '50000',
     includeGst: true, // Checkbox to include/exclude GST
@@ -32,6 +31,7 @@ const ClientForm = () => {
     phone: '+91-9876543210',
     email: 'john.doe@abctech.com',
     domainName: 'www.abctech.com',
+    companyLogo: '',
     gstNo: '27AABCU9603R1ZX',
     
     // WhatsApp & Email Management (only for Sales Person, Sales Manager, Owner, Admin)
@@ -68,6 +68,8 @@ const ClientForm = () => {
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [companyLogoFile, setCompanyLogoFile] = useState(null);
+  const [companyLogoPreview, setCompanyLogoPreview] = useState('');
 
   // Load services from backend
   useEffect(() => {
@@ -170,9 +172,6 @@ const ClientForm = () => {
   const validateForm = () => {
     const newErrors = {};
     
-    if (!formData.customerNo.trim()) {
-      newErrors.customerNo = 'Customer No is required';
-    }
     if (!formData.companyName.trim()) {
       newErrors.companyName = 'Company Name is required';
     }
@@ -196,8 +195,19 @@ const ClientForm = () => {
     startLoading('Creating client...');
 
     try {
+      let companyLogoUrl = formData.companyLogo;
+      if (companyLogoFile) {
+        const uploadResponse = await imageUploadAPI.uploadImage(companyLogoFile, 'clients');
+        if (uploadResponse.success && uploadResponse.data) {
+          companyLogoUrl = uploadResponse.data.url;
+        } else {
+          setErrors({ submit: 'Failed to upload company logo' });
+          showToast.error('Failed to upload company logo');
+          return;
+        }
+      }
+
       const payload = {
-        customerNo: formData.customerNo,
         formDate: formData.formDate,
         amountWithoutGst: parseFloat(formData.amountWithoutGst) || 0,
         gstPercentage: formData.includeGst ? (parseFloat(formData.gstPercentage) || 0) : 0,
@@ -215,6 +225,7 @@ const ClientForm = () => {
         whatsAppSameAsMobile: canManageNotifications ? formData.whatsAppSameAsMobile : true,
         useSameEmailForEnquiries: canManageNotifications ? formData.useSameEmailForEnquiries : true,
         domainName: formData.domainName,
+        companyLogo: companyLogoUrl,
         gstNo: formData.gstNo,
         specificGuidelines: formData.specificGuidelines,
         services: formData.serviceIds.map(serviceId => ({
@@ -338,19 +349,6 @@ const ClientForm = () => {
                 
                 <div className="row g-3">
                   <div className="col-md-4">
-                    <label htmlFor="customerNo" className="form-label">Customer No:</label>
-                    <input
-                      type="text"
-                      className={`form-control ${errors.customerNo ? 'is-invalid' : ''}`}
-                      id="customerNo"
-                      name="customerNo"
-                      value={formData.customerNo}
-                      onChange={handleChange}
-                      required
-                    />
-                    {errors.customerNo && <div className="invalid-feedback">{errors.customerNo}</div>}
-                  </div>
-                  <div className="col-md-4">
                     <label htmlFor="formDate" className="form-label">Date:</label>
                     <input
                       type="date"
@@ -472,6 +470,36 @@ const ClientForm = () => {
                   value={formData.domainName}
                   onChange={handleChange}
                 />
+              </div>
+
+              <div className="col-md-6">
+                <label htmlFor="companyLogo" className="form-label">Company Logo/Image (Optional):</label>
+                <input
+                  type="file"
+                  className="form-control"
+                  id="companyLogo"
+                  accept="image/*"
+                  onChange={(e) => {
+                    const file = e.target.files?.[0];
+                    setCompanyLogoFile(file || null);
+                    if (file) {
+                      const reader = new FileReader();
+                      reader.onloadend = () => setCompanyLogoPreview(reader.result);
+                      reader.readAsDataURL(file);
+                    } else {
+                      setCompanyLogoPreview('');
+                    }
+                  }}
+                />
+                {(companyLogoPreview || formData.companyLogo) && (
+                  <div className="mt-2">
+                    <img
+                      src={companyLogoPreview || formData.companyLogo}
+                      alt="Company logo preview"
+                      style={{ width: '120px', height: '120px', objectFit: 'cover', borderRadius: '6px' }}
+                    />
+                  </div>
+                )}
               </div>
               
               <div className="col-md-6">

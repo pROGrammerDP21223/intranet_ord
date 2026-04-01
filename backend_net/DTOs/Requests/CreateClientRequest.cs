@@ -4,9 +4,8 @@ namespace backend_net.DTOs.Requests;
 
 public class CreateClientRequest
 {
-    [Required]
     [MaxLength(50)]
-    public string CustomerNo { get; set; } = string.Empty;
+    public string? CustomerNo { get; set; }
 
     [Required]
     public DateTime FormDate { get; set; }
@@ -52,6 +51,9 @@ public class CreateClientRequest
 
     [MaxLength(255)]
     public string? DomainName { get; set; }
+
+    [MaxLength(500)]
+    public string? CompanyLogo { get; set; }
 
     [MaxLength(50)]
     public string? GstNo { get; set; }

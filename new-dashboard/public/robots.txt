@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /
+
+# Private intranet app should not be indexed
+Sitemap: https://intranet.ordbusinesshub.com/sitemap.xml
+

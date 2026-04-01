@@ -18,6 +18,10 @@ public class Category : BaseEntity
     [Required]
     public int IndustryId { get; set; }
 
+    public bool IsTop { get; set; } = false;  // Show in top categories sidebar/filter
+
+    public bool IsHome { get; set; } = false; // Show on home page category highlights
+
     // Navigation properties
     [ForeignKey("IndustryId")]
     public Industry? Industry { get; set; }

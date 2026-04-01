@@ -33,6 +33,8 @@ const Layout = ({ children }) => {
       return 'settings';
     } else if (path.startsWith('/messages')) {
       return 'tools';
+    } else if (path.startsWith('/free-registrations') || path.startsWith('/ordpanel-enquiries') || path.startsWith('/contact-forms')) {
+      return 'ordpanel';
     }
     return 'dashboard';
   };
@@ -277,6 +279,39 @@ const Layout = ({ children }) => {
                   </ul>
                 </div>
               </li>
+
+              {(role.isAdmin || role.isOwner || role.isSalesManager) && (
+                <li className="nav-item">
+                  <a
+                    className="nav-link d-flex justify-content-between align-items-center"
+                    data-bs-toggle="collapse"
+                    href="#menuOrdpanel"
+                    role="button"
+                    aria-expanded={activeTab === 'ordpanel'}
+                    aria-controls="menuOrdpanel"
+                  >
+                    <span><i className="fas fa-globe me-2"></i> Ordpanel</span>
+                    <i className="fas fa-chevron-down"></i>
+                  </a>
+                  <div className={`collapse ${activeTab === 'ordpanel' ? 'show' : ''}`} id="menuOrdpanel">
+                    <ul className="nav flex-column ms-3">
+                      <li className="nav-item">
+                        <Link className={`nav-link ${isActivePath('/free-registrations') ? 'active' : ''}`} to="/free-registrations">Free Registrations</Link>
+                      </li>
+                      {(role.isAdmin || role.isOwner) && (
+                        <li className="nav-item">
+                          <Link className={`nav-link ${isActivePath('/ordpanel-enquiries') ? 'active' : ''}`} to="/ordpanel-enquiries">Portal Enquiries</Link>
+                        </li>
+                      )}
+                      {(role.isAdmin || role.isOwner) && (
+                        <li className="nav-item">
+                          <Link className={`nav-link ${isActivePath('/contact-forms') ? 'active' : ''}`} to="/contact-forms">Contact Forms</Link>
+                        </li>
+                      )}
+                    </ul>
+                  </div>
+                </li>
+              )}
 
               {(role.isAdmin || role.isOwner) && (
                 <li className="nav-item">

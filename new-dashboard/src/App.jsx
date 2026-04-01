@@ -14,6 +14,7 @@ import ResetPassword from './pages/ResetPassword';
 import ClientForm from './pages/ClientForm';
 import ClientsList from './pages/ClientsList';
 import ClientDetail from './pages/ClientDetail';
+import ClientFormPrint from './pages/ClientFormPrint';
 import EditClient from './pages/EditClient';
 import ServicesManagement from './pages/ServicesManagement';
 import UsersManagement from './pages/UsersManagement';
@@ -35,6 +36,9 @@ import BackupManagement from './pages/BackupManagement';
 import ArchiveManagement from './pages/ArchiveManagement';
 import ThemeCustomization from './pages/ThemeCustomization';
 import CacheStatistics from './pages/CacheStatistics';
+import FreeRegistrationsManagement from './pages/FreeRegistrationsManagement';
+import OrdpanelEnquiriesManagement from './pages/OrdpanelEnquiriesManagement';
+import ContactFormsManagement from './pages/ContactFormsManagement';
 import ProtectedRoute from './components/ProtectedRoute';
 import './App.css';
 
@@ -92,10 +96,10 @@ const AppRoutes = () => {
         }
       />
       <Route
-        path="/clients/:id"
+        path="/clients/:id/print"
         element={
           <ProtectedRoute>
-            <ClientDetail />
+            <ClientFormPrint />
           </ProtectedRoute>
         }
       />
@@ -104,6 +108,14 @@ const AppRoutes = () => {
         element={
           <ProtectedRoute>
             <EditClient />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/clients/:id"
+        element={
+          <ProtectedRoute>
+            <ClientDetail />
           </ProtectedRoute>
         }
       />
@@ -256,6 +268,30 @@ const AppRoutes = () => {
         element={
           <ProtectedRoute>
             <ArchiveManagement />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/free-registrations"
+        element={
+          <ProtectedRoute>
+            <FreeRegistrationsManagement />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/ordpanel-enquiries"
+        element={
+          <ProtectedRoute>
+            <OrdpanelEnquiriesManagement />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/contact-forms"
+        element={
+          <ProtectedRoute>
+            <ContactFormsManagement />
           </ProtectedRoute>
         }
       />

@@ -131,6 +131,9 @@ const ClientDetail = () => {
             <Link to="/clients" className="btn btn-secondary btn-sm">
               <i className="fas fa-arrow-left me-1"></i>Back
             </Link>
+            <Link to={`/clients/${id}/print`} className="btn btn-outline-primary btn-sm">
+              <i className="fas fa-print me-1"></i>Print Form
+            </Link>
             <Link to={`/clients/${id}/edit`} className="btn btn-primary btn-sm">
               <i className="fas fa-edit me-1"></i>Edit
             </Link>

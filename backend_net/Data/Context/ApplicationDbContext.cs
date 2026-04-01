@@ -47,6 +47,11 @@ public class ApplicationDbContext : DbContext
     
     // Enquiry
     public DbSet<Enquiry> Enquiries { get; set; } = null!;
+
+    // Ordpanel (public portal) data
+    public DbSet<OrdpanelEnquiry> OrdpanelEnquiries { get; set; } = null!;
+    public DbSet<FreeRegistration> FreeRegistrations { get; set; } = null!;
+    public DbSet<ContactForm> ContactForms { get; set; } = null!;
     
     // API Keys
     public DbSet<ApiKey> ApiKeys { get; set; } = null!;

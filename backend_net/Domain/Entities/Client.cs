@@ -61,6 +61,9 @@ public class Client : BaseEntity
     [MaxLength(255)]
     public string? DomainName { get; set; }
 
+    [MaxLength(500)]
+    public string? CompanyLogo { get; set; }
+
     [MaxLength(50)]
     public string? GstNo { get; set; }
 
@@ -95,5 +98,7 @@ public class Client : BaseEntity
 
     [MaxLength(255)]
     public string? AssignedToSalesPersonName { get; set; } // Name of sales person if assigned
+
+    public bool IsPremium { get; set; } = false; // Show in premium clients showcase on home page
 }
 

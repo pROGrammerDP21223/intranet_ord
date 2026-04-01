@@ -123,13 +123,15 @@ const ResetPassword = () => {
                   <div className="card">
                     <div className="card-body p-0 auth-header-box">
                       <div className="text-center p-3">
-                        <a href="/" className="logo logo-admin">
-                          <img src="/logo-sm.png" height="50" alt="logo" className="auth-logo" />
+                        <a href="/" className="logo logo-admin d-inline-block">
+                          <span className="auth-logo-wrap">
+                            <img src="/logo-sm.png" height="50" alt="One Rank Digital" className="auth-logo" />
+                          </span>
                         </a>
                         <h4 className="mt-3 mb-1 fw-semibold text-white font-18">
                           Reset Your Password
                         </h4>
-                        <p className="text-muted mb-0">Enter your new password below.</p>
+                        <p className="auth-subtitle mb-0 small">Enter your new password below.</p>
                       </div>
                     </div>
                     <div className="card-body pt-0">

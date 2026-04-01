@@ -2,9 +2,11 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Layout from '../components/Layout';
 import DataTable from '../components/DataTable';
+import RichTextEditor from '../components/RichTextEditor';
 import { categoryAPI, industryAPI, imageUploadAPI } from '../services/api';
 
 const CategoriesManagement = () => {
+  const stripHtml = (html) => (html || '').replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
   const [categories, setCategories] = useState([]);
   const [industries, setIndustries] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -218,7 +220,7 @@ const CategoriesManagement = () => {
                       header: 'Description',
                       render: (value) => (
                         <div style={{ maxWidth: '300px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                          {value || '-'}
+                          {stripHtml(value) || '-'}
                         </div>
                       )
                     },
@@ -328,11 +330,10 @@ const CategoriesManagement = () => {
                   </div>
                   <div className="mb-3">
                     <label className="form-label">Description</label>
-                    <textarea
-                      className="form-control"
-                      rows="3"
+                    <RichTextEditor
                       value={formData.description}
-                      onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                      onChange={(content) => setFormData({ ...formData, description: content })}
+                      placeholder="Enter category description..."
                     />
                   </div>
                   <div className="mb-3">

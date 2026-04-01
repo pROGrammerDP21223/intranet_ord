@@ -114,6 +114,90 @@ public static class PermissionUpdateService
 
         await context.SaveChangesAsync();
         Console.WriteLine("[PermissionUpdate] Permissions updated successfully");
+
+        // Ensure role-permission assignments are up to date
+        await EnsureRolePermissionsAsync(context);
+    }
+
+    private static async System.Threading.Tasks.Task EnsureRolePermissionsAsync(ApplicationDbContext context)
+    {
+        var roles = await context.Roles.ToListAsync();
+        var permissions = await context.Permissions.Where(p => !p.IsDeleted).ToListAsync();
+        // Load all rows including soft-deleted to avoid unique constraint violations on insert
+        var existingRolePermissions = await context.RolePermissions.IgnoreQueryFilters().ToListAsync();
+
+        // Define the expected role → permission assignments
+        var rolePermissionMap = new Dictionary<string, string[]>
+        {
+            ["Admin"] = permissions.Select(p => p.Name).ToArray(),
+            ["Owner"] = permissions.Select(p => p.Name).ToArray(),
+            ["HOD"] = new[]
+            {
+                PermissionNames.ViewDashboard, PermissionNames.ViewClients, PermissionNames.ViewServices,
+                PermissionNames.EditClients, PermissionNames.EditServices,
+                PermissionNames.CreateClients, PermissionNames.CreateServices
+            },
+            ["Sales Manager"] = new[]
+            {
+                PermissionNames.ViewDashboard, PermissionNames.ViewClients, PermissionNames.ViewServices,
+                PermissionNames.EditClients, PermissionNames.EditServices,
+                PermissionNames.CreateClients, PermissionNames.CreateServices,
+                PermissionNames.DeleteClients
+            },
+            ["Sales Person"] = new[]
+            {
+                PermissionNames.ViewDashboard, PermissionNames.ViewClients, PermissionNames.ViewServices,
+                PermissionNames.EditClients, PermissionNames.CreateClients
+            },
+            ["Employee"] = new[]
+            {
+                PermissionNames.ViewDashboard, PermissionNames.ViewClients, PermissionNames.ViewServices
+            },
+            ["Calling Staff"] = new[]
+            {
+                PermissionNames.ViewDashboard, PermissionNames.ViewClients,
+                PermissionNames.EditClients, PermissionNames.CreateClients
+            },
+            ["Client"] = new[] { PermissionNames.ViewDashboard }
+        };
+
+        var toAdd = new List<RolePermission>();
+        var toRestore = new List<RolePermission>();
+
+        foreach (var (roleName, permNames) in rolePermissionMap)
+        {
+            var role = roles.FirstOrDefault(r => r.Name == roleName);
+            if (role == null) continue;
+
+            foreach (var permName in permNames)
+            {
+                var perm = permissions.FirstOrDefault(p => p.Name == permName);
+                if (perm == null) continue;
+
+                var existing = existingRolePermissions.FirstOrDefault(rp => rp.RoleId == role.Id && rp.PermissionId == perm.Id);
+                if (existing == null)
+                {
+                    toAdd.Add(new RolePermission { RoleId = role.Id, PermissionId = perm.Id });
+                }
+                else if (existing.IsDeleted)
+                {
+                    existing.IsDeleted = false;
+                    existing.UpdatedAt = DateTime.UtcNow;
+                    toRestore.Add(existing);
+                }
+            }
+        }
+
+        if (toAdd.Any())
+        {
+            await context.RolePermissions.AddRangeAsync(toAdd);
+        }
+
+        if (toAdd.Any() || toRestore.Any())
+        {
+            await context.SaveChangesAsync();
+            Console.WriteLine($"[PermissionUpdate] Added {toAdd.Count} new + restored {toRestore.Count} role-permission assignments");
+        }
     }
 }
 

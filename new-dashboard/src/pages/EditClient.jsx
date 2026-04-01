@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Layout from '../components/Layout';
-import { clientAPI, serviceAPI } from '../services/api';
+import { clientAPI, serviceAPI, imageUploadAPI } from '../services/api';
 import { useRole } from '../hooks/useRole';
 
 const EditClient = () => {
@@ -15,6 +15,8 @@ const EditClient = () => {
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
   const [success, setSuccess] = useState(false);
+  const [companyLogoFile, setCompanyLogoFile] = useState(null);
+  const [companyLogoPreview, setCompanyLogoPreview] = useState('');
 
   // Check if user can manage WhatsApp/Email settings
   const canManageNotifications = role.isAdmin || role.isOwner || role.isSalesPerson || role.isSalesManager;
@@ -34,6 +36,7 @@ const EditClient = () => {
     phone: '',
     email: '',
     domainName: '',
+    companyLogo: '',
     gstNo: '',
     serviceIds: [],
     emailServices: [],
@@ -89,6 +92,7 @@ const EditClient = () => {
           whatsAppSameAsMobile: client.whatsAppSameAsMobile !== undefined ? client.whatsAppSameAsMobile : true,
           useSameEmailForEnquiries: client.useSameEmailForEnquiries !== undefined ? client.useSameEmailForEnquiries : true,
           domainName: client.domainName || '',
+          companyLogo: client.companyLogo || '',
           gstNo: client.gstNo || '',
           serviceIds: client.clientServices?.map(cs => cs.serviceId) || [],
           emailServices: client.clientEmailServices?.map(es => es.emailServiceType) || [],
@@ -106,6 +110,7 @@ const EditClient = () => {
           nameDesignation: client.nameDesignation || '',
           signature: client.signature || '',
         });
+        setCompanyLogoPreview(client.companyLogo || '');
         if (client.eSignature) {
           const img = new Image();
           img.src = client.eSignature;
@@ -264,6 +269,17 @@ const EditClient = () => {
     setSuccess(false);
 
     try {
+      let companyLogoUrl = formData.companyLogo;
+      if (companyLogoFile) {
+        const uploadResponse = await imageUploadAPI.uploadImage(companyLogoFile, 'clients');
+        if (uploadResponse.success && uploadResponse.data) {
+          companyLogoUrl = uploadResponse.data.url;
+        } else {
+          setErrors({ submit: 'Failed to upload company logo' });
+          return;
+        }
+      }
+
       const payload = {
         customerNo: formData.customerNo,
         formDate: formData.formDate,
@@ -283,6 +299,7 @@ const EditClient = () => {
         whatsAppSameAsMobile: canManageNotifications ? formData.whatsAppSameAsMobile : true,
         useSameEmailForEnquiries: canManageNotifications ? formData.useSameEmailForEnquiries : true,
         domainName: formData.domainName,
+        companyLogo: companyLogoUrl,
         gstNo: formData.gstNo,
         specificGuidelines: formData.specificGuidelines,
         nameDesignation: formData.nameDesignation,
@@ -417,6 +434,35 @@ const EditClient = () => {
                   value={formData.email}
                   onChange={handleChange}
                 />
+              </div>
+              <div className="col-md-6">
+                <label htmlFor="companyLogo" className="form-label">Company Logo/Image (Optional):</label>
+                <input
+                  type="file"
+                  className="form-control"
+                  id="companyLogo"
+                  accept="image/*"
+                  onChange={(e) => {
+                    const file = e.target.files?.[0];
+                    setCompanyLogoFile(file || null);
+                    if (file) {
+                      const reader = new FileReader();
+                      reader.onloadend = () => setCompanyLogoPreview(reader.result);
+                      reader.readAsDataURL(file);
+                    } else {
+                      setCompanyLogoPreview(formData.companyLogo || '');
+                    }
+                  }}
+                />
+                {(companyLogoPreview || formData.companyLogo) && (
+                  <div className="mt-2">
+                    <img
+                      src={companyLogoPreview || formData.companyLogo}
+                      alt="Company logo preview"
+                      style={{ width: '120px', height: '120px', objectFit: 'cover', borderRadius: '6px' }}
+                    />
+                  </div>
+                )}
               </div>
             </div>
           </div>

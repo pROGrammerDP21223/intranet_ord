@@ -1,0 +1,2257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Form - ONE RANK DIGITAL</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* Screen-reader only utility */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0,0,0,0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Arial', 'Helvetica', sans-serif;
+            background: #eef0f4;
+            color: #1a1a2e;
+            line-height: 1.6;
+            padding: 0;
+            -webkit-text-size-adjust: 100%;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #fff;
+            box-shadow: 0 4px 30px rgba(26, 35, 126, 0.15);
+            border-radius: 0 0 8px 8px;
+        }
+
+        /* Form Page */
+        .form-page {
+            background: #fff;
+            padding: 0;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Header Section */
+        .form-header {
+            color: #fff;
+            padding: 32px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 30px;
+            background: linear-gradient(135deg, #f8f9ff 0%, #e8eaf6 30%, #1a237e 65%, #0d1757 100%);
+            border-bottom: 4px solid #ffc107;
+        }
+
+        .header-left {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }.contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+        }
+
+        .icon {
+            font-size: 16px;
+        }
+
+        .header-right {
+            text-align: right;
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .form-title {
+            font-size: 48px;
+            font-weight: bold;
+            color: #ffc107;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            line-height: 42px;
+        }
+
+        .form-subtitle {
+            font-size: 14px;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .form-details-box {
+            background: #ffc107;
+            padding: 18px 20px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 16px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+        }
+
+        .form-detail-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .form-detail-item label {
+            font-weight: bold;
+            color: #1a237e;
+            min-width: 120px;
+            font-size: 14px;
+        }
+
+        .form-detail-item input {
+            flex: 1;
+            padding: 8px 12px;
+            border: 2px solid #1a237e;
+            border-radius: 4px;
+            font-size: 14px;
+            background: #fff;
+        }
+
+        /* Form Sections */
+        .main-form {
+            padding: 30px 40px;
+        }
+
+        .form-section {
+            margin-bottom: 28px;
+            background: #fff;
+            border: 1px solid #e8eaf6;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 4px rgba(26,35,126,0.06);
+        }
+
+        .form-section > .section-heading {
+            margin-bottom: 0;
+            border-radius: 0;
+        }
+
+        .form-section > .form-grid,
+        .form-section > .services-grid {
+            padding: 20px;
+        }
+
+        .form-section > .form-group.full-width {
+            padding: 20px;
+        }
+
+        .section-heading {
+            font-size: 13px;
+            font-weight: 700;
+            color: #fff;
+            background: #1a237e;
+            margin-bottom: 20px;
+            padding: 8px 16px;
+            border-left: 5px solid #ffc107;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .form-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form-row {
+            display: flex;
+            flex-direction: row;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .form-group {
+            margin-bottom: 10px;
+        }
+
+        .form-group.full-width {
+            width: 100%;
+        }
+
+        .form-group.half-width {
+            width: 50%;
+            flex: 1;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"],
+        .form-group textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+            font-family: inherit;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            min-height: 45px;
+            /* Touch-friendly minimum size */
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #1a237e;
+            box-shadow: 0 0 0 3px rgba(26,35,126,0.1);
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"],
+        .form-group textarea {
+            border-color: #c5cae9;
+            border-radius: 6px;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .service-column {
+            border: 2px solid #c5cae9;
+            padding: 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 6px rgba(26,35,126,0.08);
+        }
+
+        .service-category {
+            font-size: 12px;
+            font-weight: 700;
+            color: #ffc107;
+            background: #1a237e;
+            padding: 10px 12px;
+            margin: 0;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            display: block;
+        }
+
+        /* Reset fieldset browser defaults */
+        .services-grid fieldset.checkbox-list {
+            border: none;
+            padding: 12px 10px 10px;
+            margin: 0;
+        }
+
+        .checkbox-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        /* Qty number inputs inside checkbox items */
+        .checkbox-item input[type="number"] {
+            width: 60px;
+            padding: 3px 6px;
+            border: 1px solid #c5cae9;
+            border-radius: 4px;
+            font-size: 13px;
+            font-family: inherit;
+            margin-left: auto;
+            background: #f8f9ff;
+        }
+
+        .checkbox-item input[type="number"]:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        .checkbox-item input[type="number"]:not(:disabled) {
+            border-color: #1a237e;
+            background: #fff;
+        }        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            padding: 5px 5px;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+
+        .form-section .services-grid .checkbox-item:last-child {
+            margin-bottom: 10px;
+        }
+
+
+        .checkbox-item:hover {
+            background-color: #f5f5f5;
+        }
+
+        .checkbox-item input[type="checkbox"],
+        .checkbox-item input[type="radio"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            accent-color: #1a237e;
+            min-width: 20px;
+            min-height: 20px;
+            flex-shrink: 0;
+        }
+
+        .checkbox-item span {
+            font-size: 14px;
+            color: #333;
+            user-select: none;
+        }
+
+        /* Payment Options */        /* Terms & Conditions Section */
+        .terms-section {
+            padding: 36px 40px;
+            margin-top: 28px;
+            border-top: 4px solid #1a237e;
+            background: #f8f9ff;
+        }
+
+        .terms-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #fff;
+            background: #1a237e;
+            text-align: left;
+            margin-bottom: 24px;
+            padding: 9px 16px;
+            border-left: 5px solid #ffc107;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border-radius: 0 4px 4px 0;
+        }        .terms-list {
+            padding-left: 22px;
+            line-height: 1.8;
+        }
+
+        .terms-list li {
+            margin-bottom: 10px;
+            font-size: 13px;
+            color: #444;
+        }
+
+        .terms-list li strong {
+            color: #1a237e;
+        }
+
+        /* Special Instructions */
+        .special-instructions {
+            margin-top: 28px;
+            padding-top: 0;
+        }
+
+        .instructions-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: #fff;
+            background: #1a237e;
+            margin-bottom: 20px;
+            padding: 8px 16px;
+            border-left: 5px solid #ffc107;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .instructions-section {
+            margin-bottom: 20px;
+            border: 2px solid #c5cae9;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .instruction-category {
+            font-size: 12px;
+            font-weight: 700;
+            color: #ffc107;
+            background: #1a237e;
+            padding: 9px 15px;
+            margin-bottom: 0;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            display: block;
+        }
+
+
+
+        /* Bottom Footer Strip */
+        .bottom-footer {
+            background: #1a237e;
+            padding: 15px 40px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .footer-curve {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 150px;
+            height: 100%;
+            background: #ffc107;
+            clip-path: polygon(0 0, 100% 0, 80% 100%, 0 100%);
+        }
+
+        .footer-content {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #fff;
+            font-size: 16px;
+            z-index: 1;
+        }
+
+        .globe-icon {
+            font-size: 20px;
+        }
+
+        .website-url {
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-header {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .header-left,
+            .header-right {
+                width: 100%;
+            }
+
+            .header-right {
+                text-align: left;
+            }
+
+            .form-details-box {
+                width: 100%;
+            }
+
+            .logo-section {
+                flex-wrap: wrap;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                max-width: 100%;
+                box-shadow: none;
+            }
+
+            .form-header {
+                padding: 20px 15px;
+                gap: 20px;
+            }
+
+            .header-left {
+                min-width: auto;
+            }
+
+            .logo-section {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+.logo-arrow {
+                font-size: 14px;
+            }
+
+.contact-info {
+                margin-top: 10px;
+            }
+
+            .contact-item {
+                font-size: 12px;
+                flex-wrap: wrap;
+            }
+
+            .form-title {
+                font-size: 32px;
+                margin-bottom: 8px;
+            }
+
+            .form-subtitle {
+                font-size: 12px;
+                margin-bottom: 15px;
+            }
+
+            .form-details-box {
+                padding: 15px;
+                gap: 10px;
+            }
+
+            .form-detail-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+
+            .form-detail-item label {
+                min-width: auto;
+                font-size: 13px;
+            }
+
+            .form-detail-item input {
+                width: 100%;
+                font-size: 13px;
+            }
+
+            .main-form {
+                padding: 20px 15px;
+            }
+
+            .section-heading {
+                margin-bottom: 15px;
+            }
+
+            .form-group {
+                margin-bottom: 15px;
+            }
+
+            .form-group label {
+                font-size: 13px;
+            }
+
+            .form-group input[type="text"],
+            .form-group input[type="email"],
+            .form-group input[type="tel"],
+            .form-group textarea {
+                font-size: 14px;
+                padding: 10px;
+            }
+
+            .form-row {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .form-group.half-width {
+                width: 100%;
+            }
+
+            .service-column {
+                margin-bottom: 20px;
+            }
+
+            .service-category {
+                font-size: 14px;
+                padding: 8px;
+            }
+
+            .checkbox-item {
+                padding: 10px 8px;
+            }
+
+            .checkbox-item span {
+                font-size: 13px;
+            }
+
+.form-footer {
+                flex-direction: column;
+                gap: 30px;
+                margin-top: 30px;
+                padding-top: 20px;
+            }
+
+.terms-section {
+                padding: 25px 15px;
+                margin-top: 30px;
+            }
+
+            .terms-title {
+                margin-bottom: 20px;
+            }
+
+            .terms-list {
+                padding-left: 20px;
+            }
+
+            .terms-list li {
+                font-size: 13px;
+                margin-bottom: 12px;
+                line-height: 1.6;
+            }
+
+            .instructions-title {
+                margin-bottom: 20px;
+            }
+
+            .instruction-category {
+                font-size: 14px;
+                padding: 8px 12px;
+            }
+
+            .instructions-section {
+                margin-bottom: 20px;
+            }
+
+            .action-buttons {
+                flex-wrap: wrap;
+                padding: 20px 15px;
+                gap: 15px;
+            }
+
+            .action-btn {
+                flex: 1;
+                min-width: 120px;
+                padding: 12px 25px;
+                font-size: 14px;
+            }
+
+            .bottom-footer {
+                padding: 12px 15px;
+            }
+
+            .footer-content {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 5px;
+            }
+
+            .container {
+                margin: 0;
+            }
+
+            .form-header {
+                padding: 15px 10px;
+            }
+
+.logo-arrow {
+                font-size: 12px;
+            }
+
+.contact-item {
+                font-size: 11px;
+            }
+
+            .contact-item span:not(.icon) {
+                word-break: break-word;
+            }
+
+            .form-title {
+                font-size: 24px;
+                line-height: 1.2;
+            }
+
+            .form-group label{
+                min-width: 100px !important;
+            }
+
+            .form-subtitle {
+                font-size: 11px;
+            }
+
+            .form-details-box {
+                padding: 12px;
+                gap: 8px;
+            }
+
+            .form-detail-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+
+            .form-detail-item label {
+                min-width: auto;
+                font-size: 12px;
+                width: 100%;
+            }
+
+            .form-detail-item input {
+                width: 100%;
+                font-size: 12px;
+                padding: 8px;
+            }
+
+            .main-form {
+                padding: 15px 10px;
+            }
+
+            .section-heading {
+                margin-bottom: 12px;
+            }
+
+            .form-group label {
+                font-size: 12px;
+                margin-bottom: 4px;
+            }
+
+            .form-group input[type="text"],
+            .form-group input[type="email"],
+            .form-group input[type="tel"],
+            .form-group textarea {
+                font-size: 13px;
+                padding: 9px;
+            }
+
+            .service-category {
+                font-size: 13px;
+                padding: 7px;
+            }
+
+            .checkbox-item {
+                padding: 8px;
+            }
+
+            .checkbox-item input[type="checkbox"],
+            .checkbox-item input[type="radio"] {
+                width: 18px;
+                height: 18px;
+            }
+
+            .checkbox-item span {
+                font-size: 12px;
+            }
+
+.form-footer {
+                gap: 25px;
+                margin-top: 25px;
+                padding-top: 15px;
+            }
+
+
+
+            .terms-section {
+                padding: 20px 10px;
+                margin-top: 25px;
+            }
+
+            .terms-title {
+                margin-bottom: 15px;
+            }
+
+            .terms-list {
+                padding-left: 18px;
+            }
+
+            .terms-list li {
+                font-size: 12px;
+                margin-bottom: 10px;
+                line-height: 1.5;
+            }
+
+            .instructions-title {
+                margin-bottom: 15px;
+            }
+
+            .instruction-category {
+                font-size: 13px;
+                padding: 7px 10px;
+            }
+
+            .instructions-section {
+                margin-bottom: 18px;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+                gap: 12px;
+                padding: 15px 10px;
+            }
+
+            .action-btn {
+                width: 100%;
+                min-width: auto;
+                padding: 14px 20px;
+                font-size: 14px;
+                letter-spacing: 1px;
+            }
+
+            .bottom-footer {
+                padding: 10px;
+            }
+
+            .footer-content {
+                font-size: 12px;
+                flex-wrap: wrap;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .footer-curve {
+                width: 100px;
+            }
+        }
+
+        /* Extra small devices */
+        @media (max-width: 360px) {
+            .form-title {
+                font-size: 20px;
+            }
+
+.form-details-box {
+                padding: 10px;
+            }
+
+            .main-form {
+                padding: 12px 8px;
+            }
+
+
+
+
+
+            .action-btn {
+                padding: 12px 15px;
+                font-size: 13px;
+            }
+        }
+
+        /* Prevent iOS zoom on input focus */
+        @media (max-width: 768px) {
+
+            input[type="text"],
+            input[type="email"],
+            input[type="tel"],
+            input[type="date"],
+            select,
+            textarea {
+                font-size: 16px !important;
+                /* Prevents zoom on iOS Safari */
+            }
+        }
+
+        /* Print Styles — A4 optimised */
+        @media print {
+            @page {
+                size: A4 portrait;
+                margin: 10mm 12mm;
+            }
+
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            body {
+                background: #fff !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                font-size: 10pt !important;
+                line-height: 1.4 !important;
+                width: 100% !important;
+                color: #000 !important;
+            }
+
+            .container {
+                max-width: 100% !important;
+                margin: 0 !important;
+                box-shadow: none !important;
+                width: 100% !important;
+                background: #fff !important;
+                padding: 0 !important;
+                border-radius: 0 !important;
+            }
+
+            .form-page {
+                width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                min-height: auto !important;
+                background: #fff !important;
+                overflow: visible !important;
+            }
+
+            /* ── Header ── */
+            .form-header {
+                padding: 14px 20px !important;
+                display: flex !important;
+                flex-direction: row !important;
+                justify-content: space-between !important;
+                align-items: flex-start !important;
+                flex-wrap: nowrap !important;
+                gap: 12px !important;
+                box-sizing: border-box !important;
+                background: linear-gradient(135deg, #f8f9ff 0%, #e8eaf6 30%, #1a237e 65%, #0d1757 100%) !important;
+                border-bottom: 3px solid #ffc107 !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                page-break-inside: avoid !important;
+            }
+
+            .header-left {
+                flex: 1 1 54% !important;
+                max-width: 56% !important;
+                min-width: 0 !important;
+            }
+
+            .header-right {
+                flex: 0 0 42% !important;
+                width: 42% !important;
+                max-width: 42% !important;
+                text-align: right !important;
+            }
+
+            .logo-section {
+                display: flex !important;
+                flex-direction: row !important;
+                align-items: center !important;
+                gap: 10px !important;
+                margin-bottom: 8px !important;
+                flex-wrap: nowrap !important;
+            }
+
+            .company-logo {
+                max-width: 160px !important;
+                width: auto !important;
+                height: auto !important;
+            }
+
+            .contact-info {
+                gap: 3px !important;
+                margin-top: 6px !important;
+            }
+
+            .contact-item {
+                font-size: 7.5pt !important;
+                flex-wrap: nowrap !important;
+                gap: 5px !important;
+            }
+
+            .contact-item svg {
+                width: 11px !important;
+                height: 11px !important;
+                flex-shrink: 0 !important;
+            }
+
+            .contact-item a,
+            .contact-item span.text-dark {
+                color: #1a237e !important;
+                font-size: 7.5pt !important;
+                word-break: break-word !important;
+            }
+
+            .form-title {
+                font-size: 22pt !important;
+                line-height: 1.1 !important;
+                margin-bottom: 4px !important;
+            }
+
+            .form-subtitle {
+                font-size: 7.5pt !important;
+                margin-bottom: 6px !important;
+            }
+
+            .form-details-box {
+                padding: 8px 10px !important;
+                gap: 4px !important;
+                margin-top: 6px !important;
+                background: #ffc107 !important;
+                border-radius: 4px !important;
+                page-break-inside: avoid !important;
+                width: 100% !important;
+                box-sizing: border-box !important;
+            }
+
+            .form-detail-item {
+                display: flex !important;
+                flex-direction: row !important;
+                align-items: center !important;
+                flex-wrap: nowrap !important;
+                gap: 6px !important;
+            }
+
+            .form-detail-item label {
+                font-size: 7.5pt !important;
+                min-width: 85px !important;
+                flex-shrink: 0 !important;
+            }
+
+            .form-detail-item input {
+                font-size: 7.5pt !important;
+                padding: 2px 5px !important;
+                min-width: 0 !important;
+                flex: 1 !important;
+            }
+
+            /* ── Main form ── */
+            .main-form {
+                padding: 14px 20px !important;
+            }
+
+            .form-section {
+                margin-bottom: 12px !important;
+                page-break-inside: avoid !important;
+                border: 1px solid #c5cae9 !important;
+                box-shadow: none !important;
+            }
+
+            .section-heading {
+                font-size: 8pt !important;
+                padding: 5px 10px !important;
+                page-break-after: avoid !important;
+                background: #1a237e !important;
+                color: #fff !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .form-section > .form-grid,
+            .form-section > .services-grid {
+                padding: 10px 12px !important;
+            }
+
+            .form-section > .form-group.full-width {
+                padding: 10px 12px !important;
+            }
+
+            .form-grid {
+                gap: 8px !important;
+            }
+
+            .form-row {
+                display: flex !important;
+                flex-direction: row !important;
+                gap: 10px !important;
+                width: 100% !important;
+            }
+
+            .form-group {
+                margin-bottom: 6px !important;
+            }
+
+            .form-group label {
+                font-size: 8pt !important;
+                margin-bottom: 2px !important;
+            }
+
+            .form-group input[type="text"],
+            .form-group input[type="email"],
+            .form-group input[type="tel"],
+            .form-group textarea {
+                font-size: 9pt !important;
+                padding: 4px 6px !important;
+                min-height: 24px !important;
+                border: 1px solid #999 !important;
+            }
+
+            .form-group textarea {
+                min-height: 40px !important;
+            }
+
+            .form-group.half-width {
+                width: 50% !important;
+                flex: 1 !important;
+            }
+
+            .form-group.full-width {
+                width: 100% !important;
+            }
+
+            /* ── Services grid ── */
+            .services-grid {
+                display: grid !important;
+                grid-template-columns: repeat(4, 1fr) !important;
+                gap: 10px !important;
+                margin-top: 8px !important;
+                page-break-inside: avoid !important;
+            }
+
+            .service-column {
+                padding: 0 !important;
+                margin-bottom: 0 !important;
+                page-break-inside: avoid !important;
+                border: 1px solid #c5cae9 !important;
+                border-radius: 4px !important;
+                overflow: hidden !important;
+            }
+
+            .service-category {
+                font-size: 7pt !important;
+                padding: 5px 6px !important;
+                background: #1a237e !important;
+                color: #ffc107 !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .services-grid fieldset.checkbox-list {
+                padding: 6px 8px !important;
+            }
+
+            .checkbox-item {
+                padding: 2px 3px !important;
+                gap: 5px !important;
+            }
+
+            .checkbox-item span {
+                font-size: 8pt !important;
+            }
+
+            .checkbox-item input[type="checkbox"],
+            .checkbox-item input[type="radio"] {
+                width: 11px !important;
+                height: 11px !important;
+                min-width: 11px !important;
+                min-height: 11px !important;
+            }
+
+            /* ── Service-Specific Details ── */
+            .special-instructions {
+                margin-top: 14px !important;
+                padding-top: 0 !important;
+                page-break-before: always !important;
+            }
+
+            .instructions-title {
+                font-size: 8pt !important;
+                padding: 5px 10px !important;
+                background: #1a237e !important;
+                color: #fff !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .instructions-section {
+                page-break-inside: avoid !important;
+                margin-bottom: 10px !important;
+                border: 1px solid #c5cae9 !important;
+                border-radius: 4px !important;
+            }
+
+            .instruction-category {
+                font-size: 7.5pt !important;
+                padding: 5px 10px !important;
+                background: #1a237e !important;
+                color: #ffc107 !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            fieldset.instructions-section .form-group {
+                gap: 8px !important;
+                margin-bottom: 6px !important;
+                font-size: 8pt !important;
+            }
+
+            fieldset.instructions-section .form-group > label:first-child {
+                min-width: 120px !important;
+                font-size: 8pt !important;
+            }
+
+            .instructions-section input[type="text"],
+            .instructions-section textarea {
+                font-size: 8pt !important;
+                padding: 3px 5px !important;
+            }
+
+            .instructions-section textarea {
+                min-height: 40px !important;
+            }
+
+            .inline-group .checkbox-item {
+                font-size: 8pt !important;
+                margin-right: 10px !important;
+            }
+
+            /* ── Footer (signature) ── */
+            .form-footer {
+                display: flex !important;
+                flex-direction: row !important;
+                justify-content: space-between !important;
+                gap: 24px !important;
+                padding: 14px 20px !important;
+                flex-wrap: nowrap !important;
+                margin-top: 0 !important;
+                page-break-inside: avoid !important;
+                background: #f8f9ff !important;
+                border-top: 1px solid #e8eaf6 !important;
+            }
+
+            .footer-left,
+            .footer-right {
+                flex: 1 !important;
+                min-width: 0 !important;
+                text-align: left !important;
+            }
+
+            .footer-label {
+                font-size: 7.5pt !important;
+            }
+
+            .signature-input {
+                font-size: 9pt !important;
+                padding: 4px 2px !important;
+            }
+
+            /* Hide canvas & clear button — not printable */
+            .signature-canvas {
+                display: none !important;
+            }
+
+            #clearSignature {
+                display: none !important;
+            }
+
+            /* ── Terms & Conditions ── */
+            .terms-section {
+                padding: 14px 20px !important;
+                margin-top: 0 !important;
+                page-break-before: always !important;
+                page-break-inside: avoid !important;
+                background: #f8f9ff !important;
+                border-top: 2px solid #1a237e !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .terms-title {
+                font-size: 8pt !important;
+                padding: 5px 10px !important;
+                background: #1a237e !important;
+                color: #fff !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .terms-list {
+                padding-left: 16px !important;
+                line-height: 1.5 !important;
+            }
+
+            .terms-list li {
+                font-size: 7.5pt !important;
+                margin-bottom: 3px !important;
+                color: #222 !important;
+            }
+
+            /* ── Bottom footer strip ── */
+            .bottom-footer {
+                background: #1a237e !important;
+                padding: 8px 20px !important;
+                margin-top: 0 !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                page-break-inside: avoid !important;
+            }
+
+            .footer-curve {
+                background: #ffc107 !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .footer-content {
+                font-size: 9pt !important;
+            }
+
+            /* ── Hide on-screen-only elements ── */
+            .action-buttons {
+                display: none !important;
+            }
+
+            /* ── Page break utilities ── */
+            .page-break-before {
+                page-break-before: always !important;
+            }
+
+            .page-break-after {
+                page-break-after: always !important;
+            }
+
+            .no-page-break {
+                page-break-before: avoid !important;
+                page-break-after: avoid !important;
+                page-break-inside: avoid !important;
+            }
+
+            .page-break-inside-avoid {
+                page-break-inside: avoid !important;
+            }
+
+            .page-break-before-auto {
+                page-break-before: auto !important;
+            }
+        }
+
+
+        .text-dark {
+            color: #1a1a2e;
+        }
+
+        /* Fieldset-based instruction sections */
+        fieldset.instructions-section {
+            border: 2px solid #c5cae9;
+            border-radius: 8px;
+            overflow: hidden;
+            padding: 0;
+            margin-bottom: 20px;
+            position: relative;
+            background: #fff;
+        }
+
+        /* Full-width legend header inside fieldset */
+        fieldset.instructions-section > legend.instruction-category {
+            position: static !important;
+            top: auto !important;
+            left: auto !important;
+            float: left;
+            width: 100%;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 9px 15px;
+            background: #1a237e !important;
+            color: #ffc107 !important;
+            font-size: 12px !important;
+            font-weight: 700 !important;
+            letter-spacing: 1.2px !important;
+            text-transform: uppercase;
+            border-radius: 0;
+            display: block;
+        }
+
+        fieldset.instructions-section::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        fieldset.instructions-section > .form-group {
+            padding: 12px 15px 0;
+            clear: both;
+        }
+
+        fieldset.instructions-section > .form-group:last-child {
+            padding-bottom: 15px;
+        }
+
+        /* Form rows inside special instructions fieldsets */
+        fieldset.instructions-section .form-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 12px;
+            font-size: 13px;
+        }
+
+        fieldset.instructions-section .form-group > label:first-child {
+            min-width: 150px;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        /* Inline checkbox groups */
+        .inline-group {
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        /* Inline checkbox items (in special instructions) */
+        .inline-group .checkbox-item {
+            margin-right: 18px;
+            gap: 6px;
+            font-size: 13px;
+        }
+
+        /* Instructions section inputs */
+        .instructions-section input[type="text"] {
+            flex: 1;
+            border: 1px solid #c5cae9;
+            border-radius: 4px;
+            padding: 5px 8px;
+            font-size: 13px;
+            font-family: inherit;
+        }
+
+        .instructions-section textarea {
+            flex: 1;
+            width: 100%;
+            resize: vertical;
+            border: 1px solid #c5cae9;
+            border-radius: 4px;
+            padding: 8px 10px;
+            font-size: 13px;
+            font-family: inherit;
+            line-height: 1.6;
+        }
+
+        .header-left .logo-section .company-logo {
+            width: 300px;
+        }
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            font-size: 14px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-item .icon svg {
+            display: block;
+        }
+
+        .contact-item a {
+            color: #1a237e;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+            color: #e91e63;
+        }
+
+        .form-footer {
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+            padding: 32px 40px 32px;
+            flex-wrap: wrap;
+            font-family: 'Inter', Arial, sans-serif;
+            font-size: 14px;
+            background: #f8f9ff;
+            border-top: 2px solid #e8eaf6;
+        }
+
+        .footer-left, .footer-right {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-block {
+            margin-bottom: 20px;
+        }
+
+        .footer-label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: #1a237e;
+        }
+
+        /* Input styled like signature line */
+        .signature-input {
+            width: 100%;
+            border: none;
+            border-bottom: 2px solid #c5cae9;
+            padding: 6px 2px;
+            font-size: 14px;
+            font-family: 'Inter', Arial, sans-serif;
+            outline: none;
+            background: transparent;
+            transition: border-color 0.2s;
+        }
+
+        .signature-input:focus {
+            border-bottom-color: #1a237e;
+        }
+
+        /* Canvas for e-signature */
+        .signature-canvas {
+            width: 100%;
+            height: 100px;
+            border: 2px solid #c5cae9;
+            border-radius: 6px;
+            cursor: crosshair;
+            margin-bottom: 8px;
+            background: #fff;
+        }
+
+        #clearSignature {
+            padding: 5px 14px;
+            font-size: 12px;
+            cursor: pointer;
+            border: 1px solid #c5cae9;
+            border-radius: 4px;
+            background: #fff;
+            color: #1a237e;
+            font-weight: 600;
+            font-family: 'Inter', Arial, sans-serif;
+            transition: all 0.2s;
+        }
+
+        #clearSignature:hover {
+            background: #1a237e;
+            color: #fff;
+            border-color: #1a237e;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- Single Page Form -->
+        <main class="form-page">
+
+            <!-- Header Section -->
+            <header class="form-header">
+                <div class="header-left">
+                    <div class="logo-section">
+                        <img src="https://onerankdigital.com/wp-content/uploads/2023/10/FINAL-1024x347.png"
+                            alt="OneRank Digital Logo" class="company-logo">
+                    </div>
+                    <address class="contact-info">
+                        <div class="contact-item">
+                            <span class="icon" aria-hidden="true">
+                                <!-- Email Icon SVG -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#e91e63" viewBox="0 0 24 24">
+                                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.89 2 1.99 2H20c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                                </svg>
+                            </span>
+                            <a href="mailto:support@onerankdigital.com">support@onerankdigital.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <span class="icon" aria-hidden="true">
+                                <!-- Phone Icon SVG -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#e91e63" viewBox="0 0 24 24">
+                                    <path d="M6.62 10.79a15.054 15.054 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.21c1.21.49 2.53.76 3.88.76a1 1 0 011 1v3.5a1 1 0 01-1 1C10.07 22 2 13.93 2 4a1 1 0 011-1H6.5a1 1 0 011 1c0 1.35.27 2.67.76 3.88a1 1 0 01-.21 1.11l-2.2 2.2z"/>
+                                </svg>
+                            </span>
+                            <a href="tel:8007231573">80072 31573</a> / <a href="tel:7506555044">75065 55044</a>
+                        </div>
+                        <div class="contact-item">
+                            <span class="icon" aria-hidden="true">
+                                <!-- Location Icon SVG -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#e91e63" viewBox="0 0 24 24">
+                                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z"/>
+                                </svg>
+                            </span>
+                            <span class="text-dark">Ram Tekdi Path, Ram Tekdi, Sewree, Mumbai - 400015</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="icon" aria-hidden="true">
+                                <!-- Location Icon SVG -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#e91e63" viewBox="0 0 24 24">
+                                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z"/>
+                                </svg>
+                            </span>
+                            <span class="text-dark">Pune: Megapolis, Hinjewadi Phase-3, Pune - 411057</span>
+                        </div>
+                    </address>
+
+                </div>
+
+                <div class="header-right">
+                    <h1 class="form-title">Order Form</h1>
+                    <p class="form-subtitle">Trusted Digital Marketing Company In India</p>
+
+                    <div class="form-details-box">
+                        <div class="form-detail-item">
+                            <label for="formNo">Customer No:</label>
+                            <input type="text" id="formNo" name="formNo">
+                        </div>
+                        <div class="form-detail-item">
+                            <label for="formDate">Date:</label>
+                            <input type="text" id="formDate" name="formDate" placeholder="DD/MM/YYYY">
+                        </div>
+                        <div class="form-detail-item">
+                            <label for="totalPackage">Total Package:</label>
+                            <input type="text" id="totalPackage" name="totalPackage">
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Main Form -->
+            <form id="orderForm" class="main-form">
+
+                <!-- CLIENT INFORMATION -->
+                <section class="form-section">
+                    <h2 class="section-heading">Client Information</h2>
+                    <div class="form-grid">
+
+                        <div class="form-group full-width">
+                            <label for="companyName">Company Name:</label>
+                            <input type="text" id="companyName" name="companyName">
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group half-width">
+                                <label for="fullName">Contact Person:</label>
+                                <input type="text" id="fullName" name="fullName">
+                            </div>
+                            <div class="form-group half-width">
+                                <label for="designation">Designation:</label>
+                                <input type="text" id="designation" name="designation">
+                            </div>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="address">Address:</label>
+                            <textarea id="address" name="address" rows="3"></textarea>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group half-width">
+                                <label for="phone">Contact No.:</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                            <div class="form-group half-width">
+                                <label for="email">E-mail:</label>
+                                <input type="email" id="email" name="email">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group half-width">
+                                <label for="domainName">Domain Name:</label>
+                                <input type="text" id="domainName" name="domainName">
+                            </div>
+                            <div class="form-group half-width">
+                                <label for="gstNo">GSTIN No.:</label>
+                                <input type="text" id="gstNo" name="gstNo">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SERVICES -->
+                <section class="form-section">
+                    <h2 class="section-heading">Select Services</h2>
+
+                    <div class="services-grid">
+
+                        <!-- Domain & Hosting -->
+                        <div class="service-column">
+                            <div class="service-category">Domain &amp; Hosting</div>
+                            <fieldset class="checkbox-list">
+                                <legend class="sr-only">Domain &amp; Hosting</legend>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="services[]" value="domain-hosting">
+                                    <span>Domain & Hosting</span>
+                                </label>
+
+                                <label class="checkbox-item">
+                                    <input type="checkbox" id="popId" name="emailServices[]" value="pop-id">
+                                    <span>POP ID</span>
+                                    <input type="number" id="popIdCount" name="popIdCount" min="1" step="1"
+                                        placeholder="Qty" disabled>
+                                </label>
+
+                                <label class="checkbox-item">
+                                    <input type="checkbox" id="gSuiteId" name="emailServices[]" value="g-suite-id">
+                                    <span>G Suite ID</span>
+                                    <input type="number" id="gSuiteIdCount" name="gSuiteIdCount" min="1" step="1"
+                                        placeholder="Qty" disabled>
+                                </label>
+                            </fieldset>
+                        </div>
+
+                        <!-- Web Design -->
+                        <div class="service-column">
+                            <div class="service-category">Web Design</div>
+                            <fieldset class="checkbox-list">
+                                <legend class="sr-only">Web Design</legend>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="services[]" value="website-design-development">
+                                    <span>Website Design / Development</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="services[]" value="website-maintenance">
+                                    <span>Website Maintenance</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="services[]" value="app-development">
+                                    <span>App Development</span>
+                                </label>
+                            </fieldset>
+                        </div>
+
+                        <!-- SEO -->
+                        <div class="service-column">
+                            <div class="service-category">SEO &amp; Ads</div>
+                            <fieldset class="checkbox-list">
+                                <legend class="sr-only">SEO</legend>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="services[]" value="seo">
+                                    <span>Search Engine Optimization</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="services[]" value="google-ads">
+                                    <span>Google Ads / PPC</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="services[]" value="google-my-business">
+                                    <span>Google My Business (Local)</span>
+                                </label>
+                            </fieldset>
+                        </div>
+
+                        <!-- Additional Services -->
+                        <div class="service-column">
+                            <div class="service-category">Digital Marketing</div>
+                            <fieldset class="checkbox-list">
+                                <legend class="sr-only">Additional Services</legend>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="services[]" value="ai-chatbot">
+                                    <span>AI Chatbot</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="services[]" value="youtube-promotion">
+                                    <span>YouTube Promotion</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="services[]" value="email-marketing">
+                                    <span>Email Marketing</span>
+                                </label>
+                            </fieldset>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- Special Guidelines -->
+                <section class="form-section">
+                    <h2 class="section-heading">Specific Guidelines</h2>
+                    <div class="form-group full-width" style="padding: 20px;">
+                        <label for="guidelines">Website &amp; SEO Guidelines:</label>
+                        <textarea id="guidelines" name="guidelines" rows="5"></textarea>
+                    </div>
+                </section>
+
+
+
+                <!-- TERMS SECTION -->
+
+                <!-- Special Instructions Form -->
+                <div class="special-instructions">
+                    <h2 class="instructions-title">Service-Specific Details</h2>
+                    <!-- SEO -->
+                    <fieldset class="instructions-section">
+                        <legend class="instruction-category">SEARCH ENGINE OPTIMIZATION (SEO)</legend>
+
+                        <div class="form-group inline-group">
+                            <label>Keywords:</label>
+                            <label class="checkbox-item"><input type="checkbox" name="seoKeywordRange"
+                                    value="upto-25">Upto 25</label>
+                            <label class="checkbox-item"><input type="checkbox" name="seoKeywordRange" value="25-50">25
+                                – 50</label>
+                            <label class="checkbox-item"><input type="checkbox" name="seoKeywordRange" value="75-100">75
+                                – 100</label>
+                        </div>
+
+                        <div class="form-group inline-group">
+                            <label>Location:</label>
+                            <label class="checkbox-item"><input type="checkbox" name="seoLocation"
+                                    value="state-wise">State</label>
+                            <label class="checkbox-item"><input type="checkbox" name="seoLocation"
+                                    value="india">India</label>
+                            <label class="checkbox-item"><input type="checkbox" name="seoLocation"
+                                    value="country-wise">Country</label>
+                            <label class="checkbox-item"><input type="checkbox" name="seoLocation"
+                                    value="global">Global</label>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Top Products / Keywords:</label>
+                            <textarea name="seoKeywordsList" rows="8"
+                                placeholder="1.&#10;2.&#10;3.&#10;4.&#10;5.&#10;..."></textarea>
+                        </div>
+                    </fieldset>
+
+                    <!-- GOOGLE ADWORDS -->
+                    <fieldset class="instructions-section">
+                        <legend class="instruction-category">GOOGLE ADWORDS</legend>
+                        <div class="form-group">
+                            <label>Number of Keywords:</label>
+                            <input type="text" name="adwordsKeywords">
+                            <input type="text" name="adwordsPeriod" placeholder="(Monthly / Quarterly)">
+                        </div>
+                        <div class="form-group">
+                            <label>Location:</label>
+                            <input type="text" name="adwordsLocation">
+                        </div>
+                        <div class="form-group">
+                            <label>Keywords:</label>
+                            <textarea name="adwordsKeywordsList" rows="4"></textarea>
+                        </div>
+                    </fieldset>
+
+                    <!-- SPECIAL GUIDELINES -->
+                    <fieldset class="instructions-section">
+                        <legend class="instruction-category">SPECIAL GUIDELINES</legend>
+                        <div class="form-group">
+                            <textarea name="specialGuidelines" rows="5"></textarea>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <!-- Payment Mode -->
+                <!-- <section class="form-section">
+                    <h2 class="section-heading">Mode of Payment</h2>
+                    <div class="payment-options">
+                        <label class="checkbox-item">
+                            <input type="radio" name="paymentMode" value="cheque">
+                            <span>Cheque</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="radio" name="paymentMode" value="neft">
+                            <span>NEFT</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="radio" name="paymentMode" value="rtgs">
+                            <span>RTGS</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="radio" name="paymentMode" value="credit-debit-card">
+                            <span>Credit / Debit Card</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="radio" name="paymentMode" value="upi">
+                            <span>UPI Transaction</span>
+                        </label>
+                    </div>
+                </section> -->
+
+
+
+
+            </form>
+
+            <!-- Terms & Conditions -->
+            <section class="terms-section">
+                <h2 class="terms-title">Terms & Conditions</h2>
+                <ol class="terms-list">
+                    <li><strong>The information contained on the website is solely the responsibility of the client's signatory, and the signatory hereby agrees to fully indemnify One Rank Digital in this regard as and when any claims, demands, etc.</strong></li>
+                    <li><strong>The website will be placed on the signatory's domain name within one month of receiving the complete website matter, photos, designs, and so on, as well as receipt of the full payment.</strong></li>
+                    <li><strong>Please make sure that the website content, product information, and photos you provide are your own.</strong></li>
+                    <li><strong>If a legal dispute arises in the future, our company will not be held liable under any circumstances.</strong></li>
+                    <li><strong>If you do not renew your web package after one year, we will not be responsible for domain names, website content, or mailing services.</strong></li>
+                    <li><strong>Any applicable government taxes or levies will be assessed.</strong></li>
+                    <li><strong>Scope of Work:</strong> One Rank Digital agrees to provide website design and promotion services as detailed in the project proposal or agreement.</li>
+                    <li><strong>Client Responsibilities:</strong> The client agrees to provide all necessary materials, information, and approvals required for the timely completion of the project. Timely communication and feedback from the client are essential for the progress of the project.</li>
+                    <li><strong>Payment Terms:</strong> The client agrees to pay 60% of the total project cost as an upfront deposit before the commencement of work. Milestone payments will be specified in the project proposal, with the final payment due upon project completion. Late payments may incur additional charges, and the Company reserves the right to suspend work until outstanding payments are received.</li>
+                    <li><strong>Intellectual Property:</strong> Upon full payment, the client will own the intellectual property rights to the final website design. The Company retains the right to use non-proprietary elements for promotional purposes.</li>
+                    <li><strong>Timeline and Delays:</strong> A project timeline will be provided in the project proposal. Delays caused by the client may result in an extension of the project timeline.</li>
+                    <li><strong>Termination of Services:</strong> Either party may terminate the agreement in writing if the other party breaches its obligations. Termination fees may apply.</li>
+                    <li><strong>Confidentiality:</strong> Both parties agree to keep confidential information exchanged during the project confidential.</li>
+                    <li><strong>Hosting and Domain:</strong> If hosting and domain services are provided by the Company, the client agrees to adhere to the terms and conditions of the hosting provider.</li>
+                    <li><strong>Legal Compliance:</strong> The client is responsible for ensuring the website complies with applicable laws and regulations.</li>
+                    <li><strong>Updates to Terms and Conditions:</strong> The Company reserves the right to update these terms and conditions. Clients will be notified of any changes.</li>
+                </ol>
+            </section>
+
+            <!-- Footer -->
+            <footer class="form-footer">
+                <div class="footer-left">
+                    <div class="footer-block">
+                        <label class="footer-label" for="nameDesignation">Name & Designation:</label>
+                        <input type="text" id="nameDesignation" class="signature-input" placeholder="Enter Name & Designation">
+                    </div>
+                    <div class="footer-block">
+                        <label class="footer-label" for="signature">Signature:</label>
+                        <input type="text" id="signature" class="signature-input" placeholder="Enter Signature">
+                    </div>
+                </div>
+
+                <div class="footer-right">
+                    <div class="footer-block">
+                        <label class="footer-label">E-Signature:</label>
+                        <canvas id="esignCanvas" class="signature-canvas"></canvas>
+                        <button type="button" id="clearSignature">Clear</button>
+                    </div>
+                </div>
+            </footer>
+            <script>
+            // E-signature drawing
+            const canvas = document.getElementById("esignCanvas");
+            const ctx = canvas.getContext("2d");
+            let isDrawing = false;
+
+            canvas.addEventListener("mousedown", () => isDrawing = true);
+            canvas.addEventListener("mouseup", () => { isDrawing = false; ctx.beginPath(); });
+            canvas.addEventListener("mouseleave", () => { isDrawing = false; ctx.beginPath(); });
+            canvas.addEventListener("mousemove", draw);
+
+            function draw(e) {
+                if(!isDrawing) return;
+                const rect = canvas.getBoundingClientRect();
+                ctx.lineWidth = 2;
+                ctx.lineCap = "round";
+                ctx.strokeStyle = "#e91e63"; // pink signature
+                ctx.lineTo(e.clientX - rect.left, e.clientY - rect.top);
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.moveTo(e.clientX - rect.left, e.clientY - rect.top);
+            }
+
+            // Clear button
+            document.getElementById("clearSignature").addEventListener("click", () => {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.beginPath();
+            });
+            </script>
+
+
+
+            <!-- Bottom Footer -->
+            <div class="bottom-footer">
+                <div class="footer-curve"></div>
+                <div class="footer-content">
+                    <span class="globe-icon">🌐</span>
+                    <span class="website-url">www.onerankdigital.com</span>
+                </div>
+            </div>
+
+        </main>
+<!-- Action Buttons -->
+<div class="action-buttons">
+    <button type="button" class="action-btn" id="printBtn">Print</button>
+</div>
+
+<style>
+.action-buttons {
+    margin-top: 0;
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    padding: 20px 40px;
+    background: #eef0f4;
+    border-top: 3px solid #1a237e;
+}
+
+.action-btn {
+    padding: 11px 32px;
+    background-color: #1a237e;
+    color: #fff;
+    border: 2px solid #1a237e;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 700;
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.2s;
+    box-shadow: 0 2px 8px rgba(26,35,126,0.2);
+}
+
+.action-btn:hover {
+    background-color: #fff;
+    color: #1a237e;
+    box-shadow: 0 4px 12px rgba(26,35,126,0.25);
+    transform: translateY(-1px);
+}
+</style>
+
+<script>
+// Auto-populate form from URL parameters
+function populateFormFromURL() {
+    const urlParams = new URLSearchParams(window.location.search);
+    
+    // Map URL parameters to form fields
+    const fieldMapping = {
+        'companyName': 'companyName',
+        'contactPerson': 'fullName',
+        'designation': 'designation',
+        'address': 'address',
+        'phone': 'phone',
+        'email': 'email',
+        'domainName': 'domainName',
+        'gstNo': 'gstNo',
+        'customerNo': 'formNo',
+        'totalPackage': 'totalPackage',
+        'date': 'formDate',
+        'guidelines': 'guidelines'
+    };
+    
+    // Populate each field
+    Object.keys(fieldMapping).forEach(param => {
+        const value = urlParams.get(param);
+        if (value) {
+            const fieldId = fieldMapping[param];
+            const field = document.getElementById(fieldId);
+            if (field) {
+                field.value = decodeURIComponent(value);
+            }
+        }
+    });
+    
+    // Populate services checkboxes
+    const servicesParam = urlParams.get('services');
+    if (servicesParam) {
+        const services = servicesParam.split(',').map(s => s.trim());
+        services.forEach(serviceValue => {
+            const checkbox = document.querySelector(`input[name="services[]"][value="${serviceValue}"]`);
+            if (checkbox) {
+                checkbox.checked = true;
+            }
+        });
+    }
+    
+    // Populate email services checkboxes
+    const emailServicesParam = urlParams.get('emailServices');
+    if (emailServicesParam) {
+        const emailServices = emailServicesParam.split(',').map(s => s.trim());
+        emailServices.forEach(emailServiceValue => {
+            const checkbox = document.querySelector(`input[name="emailServices[]"][value="${emailServiceValue}"]`);
+            if (checkbox) {
+                checkbox.checked = true;
+                // Enable the corresponding count input
+                const numberInput = checkbox.closest('.checkbox-item')?.querySelector('input[type="number"]');
+                if (numberInput) {
+                    numberInput.disabled = false;
+                }
+            }
+        });
+    }
+    
+    // Populate POP ID count - ensure it runs after emailServices to set the value
+    const popIdCount = urlParams.get('popIdCount');
+    if (popIdCount) {
+        const popIdCheckbox = document.getElementById('popId');
+        const popIdInput = document.getElementById('popIdCount');
+        if (popIdCheckbox && popIdInput) {
+            // Check the checkbox first
+            popIdCheckbox.checked = true;
+            // Enable the input and set the value
+            popIdInput.disabled = false;
+            popIdInput.value = popIdCount;
+            // Trigger change event to ensure any listeners are notified
+            popIdCheckbox.dispatchEvent(new Event('change'));
+        }
+    }
+    
+    // Populate G Suite ID count - ensure it runs after emailServices to set the value
+    const gSuiteIdCount = urlParams.get('gSuiteIdCount');
+    if (gSuiteIdCount) {
+        const gSuiteCheckbox = document.getElementById('gSuiteId');
+        const gSuiteInput = document.getElementById('gSuiteIdCount');
+        if (gSuiteCheckbox && gSuiteInput) {
+            // Check the checkbox first
+            gSuiteCheckbox.checked = true;
+            // Enable the input and set the value
+            gSuiteInput.disabled = false;
+            gSuiteInput.value = gSuiteIdCount;
+            // Trigger change event to ensure any listeners are notified
+            gSuiteCheckbox.dispatchEvent(new Event('change'));
+        }
+    }
+    
+    // Populate SEO keyword range checkboxes
+    const seoKeywordRangeParam = urlParams.get('seoKeywordRange');
+    if (seoKeywordRangeParam) {
+        const seoRanges = seoKeywordRangeParam.split(',').map(s => s.trim());
+        seoRanges.forEach(rangeValue => {
+            const checkbox = document.querySelector(`input[name="seoKeywordRange"][value="${rangeValue}"]`);
+            if (checkbox) {
+                checkbox.checked = true;
+            }
+        });
+    }
+    
+    // Populate SEO location checkboxes
+    const seoLocationParam = urlParams.get('seoLocation');
+    if (seoLocationParam) {
+        const seoLocations = seoLocationParam.split(',').map(s => s.trim());
+        seoLocations.forEach(locationValue => {
+            const checkbox = document.querySelector(`input[name="seoLocation"][value="${locationValue}"]`);
+            if (checkbox) {
+                checkbox.checked = true;
+            }
+        });
+    }
+    
+    // Populate SEO keywords list
+    const seoKeywordsList = urlParams.get('seoKeywordsList');
+    if (seoKeywordsList) {
+        const textarea = document.querySelector('textarea[name="seoKeywordsList"]');
+        if (textarea) {
+            textarea.value = decodeURIComponent(seoKeywordsList);
+        }
+    }
+    
+    // Populate Google Adwords fields
+    const adwordsKeywords = urlParams.get('adwordsKeywords');
+    if (adwordsKeywords) {
+        const input = document.querySelector('input[name="adwordsKeywords"]');
+        if (input) {
+            input.value = decodeURIComponent(adwordsKeywords);
+        }
+    }
+    
+    const adwordsPeriod = urlParams.get('adwordsPeriod');
+    if (adwordsPeriod) {
+        const input = document.querySelector('input[name="adwordsPeriod"]');
+        if (input) {
+            input.value = decodeURIComponent(adwordsPeriod);
+        }
+    }
+    
+    const adwordsLocation = urlParams.get('adwordsLocation');
+    if (adwordsLocation) {
+        const input = document.querySelector('input[name="adwordsLocation"]');
+        if (input) {
+            input.value = decodeURIComponent(adwordsLocation);
+        }
+    }
+    
+    const adwordsKeywordsList = urlParams.get('adwordsKeywordsList');
+    if (adwordsKeywordsList) {
+        const textarea = document.querySelector('textarea[name="adwordsKeywordsList"]');
+        if (textarea) {
+            textarea.value = decodeURIComponent(adwordsKeywordsList);
+        }
+    }
+    
+    // Populate special guidelines
+    const specialGuidelines = urlParams.get('specialGuidelines');
+    if (specialGuidelines) {
+        const textarea = document.querySelector('textarea[name="specialGuidelines"]');
+        if (textarea) {
+            textarea.value = decodeURIComponent(specialGuidelines);
+        }
+    }
+}
+
+// Run on page load
+window.addEventListener('DOMContentLoaded', function() {
+    populateFormFromURL();
+    
+    // Disable all form fields after population
+    const form = document.getElementById('orderForm');
+    if (form) {
+        // Disable all inputs (except checkboxes and radios - keep them checked but disabled)
+        const inputs = form.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], input[type="number"]');
+        inputs.forEach(input => {
+            input.disabled = true;
+        });
+        
+        // Disable all textareas
+        const textareas = form.querySelectorAll('textarea');
+        textareas.forEach(textarea => {
+            textarea.disabled = true;
+        });
+        
+        // Disable checkboxes and radios (but keep them checked)
+        const checkboxes = form.querySelectorAll('input[type="checkbox"], input[type="radio"]');
+        checkboxes.forEach(checkbox => {
+            checkbox.disabled = true;
+        });
+        
+        // Disable signature fields
+        const signatureInputs = document.querySelectorAll('#nameDesignation, #signature');
+        signatureInputs.forEach(input => {
+            input.disabled = true;
+        });
+        
+        // Disable e-signature canvas
+        const esignCanvas = document.getElementById('esignCanvas');
+        if (esignCanvas) {
+            esignCanvas.style.pointerEvents = 'none';
+            esignCanvas.style.opacity = '0.6';
+        }
+        
+        // Hide clear signature button
+        const clearBtn = document.getElementById('clearSignature');
+        if (clearBtn) {
+            clearBtn.style.display = 'none';
+        }
+    }
+});
+
+// Print Function
+document.getElementById("printBtn").addEventListener("click", () => {
+    window.print();
+});
+</script>
+
+    </div>
+
+    <script>
+        // Enable/disable number inputs for email services
+        document.querySelectorAll('.checkbox-item input[type="checkbox"]').forEach(checkbox => {
+            checkbox.addEventListener('change', function () {
+                const numberInput = this.closest('.checkbox-item')?.querySelector('input[type="number"]');
+                if (numberInput) {
+                    numberInput.disabled = !this.checked;
+                    if (!this.checked) numberInput.value = '';
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

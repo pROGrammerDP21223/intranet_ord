@@ -15,23 +15,15 @@ public class SecurityHeadersMiddleware
 
     public async Task InvokeAsync(HttpContext context)
     {
-        // Skip security headers for SignalR endpoints to avoid CORS issues
-        var path = context.Request.Path.Value?.ToLower() ?? "";
-        var isSignalREndpoint = path.Contains("/notificationhub") || path.Contains("/signalr");
-        
-        // Security Headers (skip for SignalR endpoints)
-        if (!_isDevelopment && !isSignalREndpoint)
+        if (!_isDevelopment)
         {
             context.Response.Headers.Append("X-Content-Type-Options", "nosniff");
             context.Response.Headers.Append("X-Frame-Options", "DENY");
             context.Response.Headers.Append("X-XSS-Protection", "1; mode=block");
             context.Response.Headers.Append("Referrer-Policy", "strict-origin-when-cross-origin");
             context.Response.Headers.Append("Permissions-Policy", "geolocation=(), microphone=(), camera=()");
-            
-            // Content Security Policy (adjust based on your needs)
-            // Relaxed for SignalR compatibility
-            context.Response.Headers.Append("Content-Security-Policy", 
-                "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; connect-src 'self' ws: wss:;");
+            context.Response.Headers.Append("Content-Security-Policy",
+                "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline';");
         }
 
         // Remove server header

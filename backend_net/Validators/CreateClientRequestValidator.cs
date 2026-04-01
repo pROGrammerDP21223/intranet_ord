@@ -8,8 +8,8 @@ public class CreateClientRequestValidator : AbstractValidator<CreateClientReques
     public CreateClientRequestValidator()
     {
         RuleFor(x => x.CustomerNo)
-            .NotEmpty().WithMessage("Customer number is required")
-            .MaximumLength(50).WithMessage("Customer number must not exceed 50 characters");
+            .MaximumLength(50).WithMessage("Customer number must not exceed 50 characters")
+            .When(x => !string.IsNullOrEmpty(x.CustomerNo));
 
         RuleFor(x => x.FormDate)
             .NotEmpty().WithMessage("Form date is required");
@@ -32,6 +32,10 @@ public class CreateClientRequestValidator : AbstractValidator<CreateClientReques
 
         RuleFor(x => x.GstNo)
             .MaximumLength(50).WithMessage("GST number must not exceed 50 characters");
+
+        RuleFor(x => x.CompanyLogo)
+            .MaximumLength(500).WithMessage("Company logo URL must not exceed 500 characters")
+            .When(x => !string.IsNullOrEmpty(x.CompanyLogo));
 
         RuleFor(x => x.AmountWithoutGst)
             .GreaterThanOrEqualTo(0).WithMessage("Amount without GST must be greater than or equal to 0")

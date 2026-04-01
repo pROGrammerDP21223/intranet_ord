@@ -1,0 +1,84 @@
+# Subdomain 1: React admin (new-dashboard) — static files + proxy .NET API on same host
+# Subdomain 2: ordpanel (PHP) — PHP handles /api/csrf, /api/enquiry, etc.; .NET is separate on dashboard host
+
+upstream dotnet_app {
+    server 127.0.0.1:5000;
+    keepalive 32;
+}
+
+server {
+    listen 80;
+    server_name ${DASHBOARD_HOST};
+
+    root /var/www/dashboard;
+    index index.html;
+    client_max_body_size 80m;
+
+    # React SPA
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+
+    location /api/ {
+        proxy_pass http://dotnet_app;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Forwarded-Host $host;
+        proxy_read_timeout 300s;
+    }
+
+    location /uploads/ {
+        proxy_pass http://dotnet_app;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+
+    location /hangfire {
+        proxy_pass http://dotnet_app;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+
+    location /health {
+        proxy_pass http://dotnet_app;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+    }
+}
+
+server {
+    listen 80;
+    server_name ${ORDPANEL_HOST};
+
+    root /var/www/ordpanel;
+    index index.php;
+    client_max_body_size 20m;
+
+    # Block direct access to PHP app internals (same idea as Apache rules)
+    location ~ ^/(backend|seed|includes|controllers)(/|$) {
+        deny all;
+        return 404;
+    }
+
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
+
+    location ~ \.php$ {
+        fastcgi_pass unix:/run/php/php8.2-fpm.sock;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        include fastcgi_params;
+        fastcgi_read_timeout 120s;
+    }
+
+    location ~ /\. {
+        deny all;
+    }
+}

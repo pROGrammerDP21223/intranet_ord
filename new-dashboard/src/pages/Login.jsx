@@ -105,13 +105,15 @@ const Login = () => {
                   <div className="card">
                     <div className="card-body p-0 auth-header-box">
                       <div className="text-center p-3">
-                        <a href="/" className="logo logo-admin">
-                          <img src="/logo-sm.png" height="50" alt="logo" className="auth-logo" />
+                        <a href="/" className="logo logo-admin d-inline-block">
+                          <span className="auth-logo-wrap">
+                            <img src="/logo-sm.png" height="50" alt="One Rank Digital" className="auth-logo" />
+                          </span>
                         </a>
                         <h4 className="mt-3 mb-1 fw-semibold text-white font-18">
                           Let's Get Started One Rank Digital
                         </h4>
-                        <p className="text-muted mb-0">Sign in to continue to One Rank Digital.</p>
+                        <p className="auth-subtitle mb-0 small">Sign in to continue to One Rank Digital.</p>
                       </div>
                     </div>
                     <div className="card-body pt-0">

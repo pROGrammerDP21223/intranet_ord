@@ -56,8 +56,35 @@ public class ClientService : IClientService
             .ToListAsync();
     }
 
+    private async System.Threading.Tasks.Task<string> GenerateCustomerNoAsync()
+    {
+        var today = DateTime.Now;
+        var prefix = $"ORD-{today:ddMMyyyy}";
+
+        var existingNos = await _context.Clients
+            .Where(c => c.CustomerNo.StartsWith(prefix))
+            .Select(c => c.CustomerNo)
+            .ToListAsync();
+
+        int maxSeq = 0;
+        foreach (var no in existingNos)
+        {
+            var parts = no.Split('-');
+            if (parts.Length == 3 && int.TryParse(parts[2], out int seq) && seq > maxSeq)
+                maxSeq = seq;
+        }
+
+        return $"{prefix}-{(maxSeq + 1):D3}";
+    }
+
     public async System.Threading.Tasks.Task<Client> CreateAsync(CreateClientRequest request, int? createdByUserId = null, string? createdByRole = null)
     {
+        // Auto-generate customer number if not provided
+        if (string.IsNullOrWhiteSpace(request.CustomerNo))
+        {
+            request.CustomerNo = await GenerateCustomerNoAsync();
+        }
+
         // Check if customer number already exists
         if (await CustomerNoExistsAsync(request.CustomerNo))
         {
@@ -94,6 +121,7 @@ public class ClientService : IClientService
             WhatsAppSameAsMobile = request.WhatsAppSameAsMobile,
             UseSameEmailForEnquiries = request.UseSameEmailForEnquiries,
             DomainName = request.DomainName,
+            CompanyLogo = request.CompanyLogo,
             GstNo = request.GstNo,
             SpecificGuidelines = request.SpecificGuidelines,
             CreatedBy = createdBy,
@@ -311,6 +339,7 @@ public class ClientService : IClientService
         client.WhatsAppSameAsMobile = request.WhatsAppSameAsMobile;
         client.UseSameEmailForEnquiries = request.UseSameEmailForEnquiries;
         client.DomainName = request.DomainName;
+        client.CompanyLogo = request.CompanyLogo;
         client.GstNo = request.GstNo;
         client.SpecificGuidelines = request.SpecificGuidelines;
         client.UpdatedAt = DateTime.UtcNow;

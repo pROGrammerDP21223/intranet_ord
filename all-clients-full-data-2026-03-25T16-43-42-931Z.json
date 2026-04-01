@@ -1,0 +1,1416 @@
+{
+  "exported_at": "2026-03-25T16:43:43.030708",
+  "clients": [
+    {
+      "client_id": "ORD-20260211-001",
+      "name": "SPARK SYSTEMS ",
+      "status": "active",
+      "is_premium": false,
+      "company_name": "SPARK SYSTEMS ",
+      "contact_person": "Nilesh Gaikwad ",
+      "designation": null,
+      "address": "308, Bhawani Peth, Timbar Market Road, Pune - 411042",
+      "phone": "9699799144",
+      "email": "info@spark-group.in",
+      "domain_name": "www.spark-group.in",
+      "gst_no": null,
+      "logo": null,
+      "city": null,
+      "state": null,
+      "description": null,
+      "package_amount": 75000,
+      "gst_amount": 13500,
+      "total_amount": 88500,
+      "customer_no": "ORD-20260211-001",
+      "order_date": "2026-01-22",
+      "order_data": {
+        "services": [
+          {
+            "code": "domain-hosting",
+            "name": "Domain & Hosting"
+          },
+          {
+            "code": "website-design-development",
+            "name": "Website Design / Development"
+          },
+          {
+            "code": "seo",
+            "name": "Search Engine Optimization"
+          }
+        ],
+        "guidelines": "Need to google promotion in only Pune city ",
+        "seo_keyword_range": [
+          "upto-25"
+        ],
+        "seo_keywords_list": "Tyrolit Dealers in Pune\nIFSC Dealer in Pune \nBosch Dealer in Pune\n",
+        "special_guidelines": "The client has already paid 15,000 of the 75,000 package amount; the remaining sum is the outstanding balance. He will pay us the whole sum if we respond well to him and there is a local inquiry; if not, we have already decided that this package will cost 40,000."
+      },
+      "created_at": "2026-02-11T11:03:37.149177+00:00",
+      "updated_at": "2026-02-11T11:03:37.149177+00:00"
+    },
+    {
+      "client_id": "ORD-20260227-001",
+      "name": "Pooja Lab Equipments",
+      "status": "active",
+      "is_premium": true,
+      "company_name": "Pooja Lab Equipments",
+      "contact_person": "Karthik K Nair",
+      "designation": "Partner",
+      "address": "22, Gr. Floor, Bhandup Indl. Estate, Pannalal Compound, LBS Marg, Bhandup (W), Mumbai-400078",
+      "phone": "022-67987938, 022-25968723",
+      "email": "poojalabequipments@yahoo.in",
+      "domain_name": "https://www.poojalabequips.com/",
+      "gst_no": null,
+      "logo": null,
+      "city": null,
+      "state": null,
+      "description": null,
+      "package_amount": 45000,
+      "gst_amount": 8100,
+      "total_amount": 53100,
+      "customer_no": "ORD-20260227-001",
+      "order_date": null,
+      "order_data": {
+        "services": [
+          {
+            "code": "website-design-development",
+            "name": "Website Design / Development"
+          },
+          {
+            "code": "seo",
+            "name": "Search Engine Optimization"
+          },
+          {
+            "code": "domain-hosting",
+            "name": "Domain & Hosting"
+          },
+          {
+            "code": "pop-id",
+            "name": "POP ID",
+            "quantity": 1
+          }
+        ],
+        "seo_location": [
+          "state-wise",
+          "india"
+        ],
+        "seo_keyword_range": [
+          "upto-25"
+        ],
+        "seo_keywords_list": "Chromatography Refrigerator, Pharmaceutical / Medical Refrigerator, B.O.D. Incubator, Ice Flaker, Illuminated Plant Growth Chamber, Stability Chamber, Freezer cum Refrigerator, Ultra Low Temperature Deep Freezer, Low Temperature Deep Freezer, Deep Freezer Vertical & Horizontal, Orbital Shaking Incubator, Cryostat Bath, Vertical Bacteriological Incubator",
+        "special_guidelines": "All India Promotion"
+      },
+      "created_at": "2026-02-27T17:08:08.284088+00:00",
+      "updated_at": "2026-02-27T17:08:08.526696+00:00"
+    },
+    {
+      "client_id": "ORD-20260227-002",
+      "name": "S Napkin Bouquet",
+      "status": "active",
+      "is_premium": true,
+      "company_name": "S Napkin Bouquet",
+      "contact_person": "Mansi Pol",
+      "designation": "Director",
+      "address": "Janani All In One Store, Sanskruti Apt, Plot No 13, Sec- 34, ICICI Bank Lane, behind pratik garden Kamothe, navi mumbai, Pin - 410209",
+      "phone": " +91 98678 30335",
+      "email": "info@napkinbouquet.com",
+      "domain_name": "https://www.napkinbouquet.com/",
+      "gst_no": null,
+      "logo": null,
+      "city": null,
+      "state": null,
+      "description": null,
+      "package_amount": 32000,
+      "gst_amount": 5760,
+      "total_amount": 37760,
+      "customer_no": "ORD-20260227-002",
+      "order_date": null,
+      "order_data": {
+        "services": [
+          {
+            "code": "domain-hosting",
+            "name": "Domain & Hosting"
+          },
+          {
+            "code": "website-design-development",
+            "name": "Website Design / Development"
+          },
+          {
+            "code": "seo",
+            "name": "Search Engine Optimization"
+          },
+          {
+            "code": "pop-id",
+            "name": "POP ID",
+            "quantity": 1
+          }
+        ],
+        "seo_keyword_range": [
+          "upto-25"
+        ],
+        "seo_keywords_list": "napkin bouquet"
+      },
+      "created_at": "2026-02-27T17:12:16.959639+00:00",
+      "updated_at": "2026-02-27T17:12:17.060431+00:00"
+    },
+    {
+      "client_id": "ORD-20260227-003",
+      "name": "RECO Transformers Pvt.Ltd",
+      "status": "active",
+      "is_premium": true,
+      "company_name": "RECO Transformers Pvt.Ltd",
+      "contact_person": "Nitin Prabhu",
+      "designation": "Partner",
+      "address": "Hanuman Industrial Est, 18, GD Ambekar Marg, Sahakar Nagar, Wadala, Mumbai, Maharashtra 400031",
+      "phone": "+91 9324748199 | +91 8879755871",
+      "email": "rkv@reco-transformers.com",
+      "domain_name": "https://www.reco-transformers.com/",
+      "gst_no": null,
+      "logo": null,
+      "city": null,
+      "state": null,
+      "description": null,
+      "package_amount": 50000,
+      "gst_amount": 9000,
+      "total_amount": 59000,
+      "customer_no": "ORD-20260227-003",
+      "order_date": null,
+      "order_data": {
+        "services": [
+          {
+            "code": "domain-hosting",
+            "name": "Domain & Hosting"
+          },
+          {
+            "code": "website-design-development",
+            "name": "Website Design / Development"
+          },
+          {
+            "code": "seo",
+            "name": "Search Engine Optimization"
+          }
+        ],
+        "seo_keyword_range": [
+          "upto-25"
+        ],
+        "seo_keywords_list": "Low Voltage Transformers, Low Voltage Current Transformers, Voltage Transformers, Control Transformers, Current Transformers, Resin Cast Current Transformers, Resin Cast Ring Type CT, Resin Cast Window Type CT, Resin Cast Wound Primary CT, Resin Cast Ring Main Unit CT, ABS Encapsulated Current Transformers"
+      },
+      "created_at": "2026-02-27T17:16:23.089448+00:00",
+      "updated_at": "2026-02-27T17:16:23.125964+00:00"
+    },
+    {
+      "client_id": "ORD-20260227-004",
+      "name": "Mercantile Electric Corporation",
+      "status": "active",
+      "is_premium": false,
+      "company_name": "Mercantile Electric Corporation",
+      "contact_person": "Mr. Dhiren Somaiya",
+      "designation": "Director",
+      "address": "154, Kantilal Sharma Marg, Lohar Chawl, Mumbai - 400002",
+      "phone": "022-22089295 | 022-22062688",
+      "email": null,
+      "domain_name": "https://www.mercantileelectric.in/",
+      "gst_no": null,
+      "logo": null,
+      "city": null,
+      "state": null,
+      "description": null,
+      "package_amount": 40000,
+      "gst_amount": 7200,
+      "total_amount": 47200,
+      "customer_no": "ORD-20260227-004",
+      "order_date": null,
+      "order_data": {
+        "services": [
+          {
+            "code": "domain-hosting",
+            "name": "Domain & Hosting"
+          },
+          {
+            "code": "website-design-development",
+            "name": "Website Design / Development"
+          },
+          {
+            "code": "seo",
+            "name": "Search Engine Optimization"
+          }
+        ],
+        "seo_location": [
+          "state-wise",
+          "india"
+        ],
+        "seo_keyword_range": [
+          "upto-25"
+        ],
+        "seo_keywords_list": "Cable Ties, Zip Ties, Cable Wraps, Nylon Cable Ties, Color Cable Ties, Tag Ties, Push Mount Cable Ties, Self Adhesive Tie Mount Sticker, Stainless Steel Cable Ties, Releasable Cable Ties, Hydraulic Tools, Hand Crimping Tools, Hydraulic Cable Crimper, XTRA Hydraulic Tools, XTRA Crimping Tools, XTRA Taiwan Tools, XTRA Solar Tools, XTRA Cable Cutters"
+      },
+      "created_at": "2026-02-27T17:19:12.829783+00:00",
+      "updated_at": "2026-02-27T17:19:12.829783+00:00"
+    },
+    {
+      "client_id": "ORD-20260227-005",
+      "name": " ERAM SOLAR POWER SOLUTIONS",
+      "status": "active",
+      "is_premium": true,
+      "company_name": " ERAM SOLAR POWER SOLUTIONS",
+      "contact_person": "Khan Sir",
+      "designation": "Director",
+      "address": "Globe Business Park, Plot No-30 Office No. 202, 2nd Floor, Kalyan - Badlapur Rd, Ambernath, Maharashtra 421501",
+      "phone": "+91 77740 11993",
+      "email": "erampowerprojects@gmail.com",
+      "domain_name": "https://www.eramsolar.net/",
+      "gst_no": null,
+      "logo": null,
+      "city": null,
+      "state": null,
+      "description": null,
+      "package_amount": 50000,
+      "gst_amount": 9000,
+      "total_amount": 59000,
+      "customer_no": "ORD-20260227-005",
+      "order_date": null,
+      "order_data": {
+        "services": [
+          {
+            "code": "domain-hosting",
+            "name": "Domain & Hosting"
+          },
+          {
+            "code": "website-design-development",
+            "name": "Website Design / Development"
+          },
+          {
+            "code": "seo",
+            "name": "Search Engine Optimization"
+          },
+          {
+            "code": "google-ads",
+            "name": "Google Ads / PPC"
+          }
+        ],
+        "seo_location": [
+          "state-wise",
+          "india"
+        ],
+        "adwords_period": "Monthly",
+        "adwords_keywords": "5",
+        "adwords_location": "India",
+        "seo_keyword_range": [
+          "upto-25"
+        ],
+        "seo_keywords_list": "Commercial Solar Panels, Industrial Solar Panels, Solar Design Solutions, Industrial Solar Rooftop System, Solar Panels",
+        "adwords_keywords_list": "Commercial Solar Panels, Industrial Solar Panels, Solar Design Solutions, Industrial Solar Rooftop System, Solar Panels"
+      },
+      "created_at": "2026-02-27T17:25:54.863079+00:00",
+      "updated_at": "2026-02-27T17:25:54.914850+00:00"
+    },
+    {
+      "client_id": "ORD-20260227-006",
+      "name": "ERAM POWER PROJECTS",
+      "status": "active",
+      "is_premium": true,
+      "company_name": "ERAM POWER PROJECTS",
+      "contact_person": "Khan Sir",
+      "designation": "Director",
+      "address": "Globe Business park, Plot no-30, Office No. 202, 2nd Floor, Kalyan Badlapur Rd, Ambarnath (w) Maharashtra - 421501 . INDIA.",
+      "phone": "+91-8600604615 / +91-7774011993 /",
+      "email": "info@eramgenset.net",
+      "domain_name": "https://www.eramgenset.net/",
+      "gst_no": null,
+      "logo": null,
+      "city": null,
+      "state": null,
+      "description": null,
+      "package_amount": 50000,
+      "gst_amount": 9000,
+      "total_amount": 59000,
+      "customer_no": "ORD-20260227-006",
+      "order_date": null,
+      "order_data": {
+        "services": [
+          {
+            "code": "domain-hosting",
+            "name": "Domain & Hosting"
+          },
+          {
+            "code": "website-design-development",
+            "name": "Website Design / Development"
+          },
+          {
+            "code": "seo",
+            "name": "Search Engine Optimization"
+          },
+          {
+            "code": "google-ads",
+            "name": "Google Ads / PPC"
+          },
+          {
+            "code": "pop-id",
+            "name": "POP ID",
+            "quantity": 1
+          }
+        ],
+        "seo_location": [
+          "state-wise",
+          "india"
+        ],
+        "adwords_period": "Monthly",
+        "adwords_keywords": "6",
+        "adwords_location": "India",
+        "seo_keyword_range": [
+          "upto-25"
+        ],
+        "seo_keywords_list": "DG Set, DG Sets, DG Generator, DG Generators, Diesel Generator, Diesel Generators, Diesel Generating Set, Diesel Generating Sets, Domestic Diesel Generator",
+        "adwords_keywords_list": "DG Set, DG Sets, DG Generator, DG Generators, Diesel Generator, Diesel Generators, Diesel Generating Set, Diesel Generating Sets"
+      },
+      "created_at": "2026-02-27T17:29:23.781969+00:00",
+      "updated_at": "2026-02-27T17:29:23.832085+00:00"
+    },
+    {
+      "client_id": "ORD-20260227-007",
+      "name": "Eram Engineering Services",
+      "status": "active",
+      "is_premium": true,
+      "company_name": "Eram Engineering Services",
+      "contact_person": "Khan Sir",
+      "designation": "Director",
+      "address": "Plot No.E-18 Additional Industrial Area, Anand Nagar, MIDC, Ambernath (E) - 421506, Dist- Thane",
+      "phone": "0251-3508285 , +91 7774011993",
+      "email": "info@eramsoundproofenclosures.com",
+      "domain_name": "https://www.eramsoundproofenclosures.com/",
+      "gst_no": null,
+      "logo": null,
+      "city": null,
+      "state": null,
+      "description": null,
+      "package_amount": 50000,
+      "gst_amount": 9000,
+      "total_amount": 59000,
+      "customer_no": "ORD-20260227-007",
+      "order_date": null,
+      "order_data": {
+        "services": [
+          {
+            "code": "domain-hosting",
+            "name": "Domain & Hosting"
+          },
+          {
+            "code": "website-design-development",
+            "name": "Website Design / Development"
+          },
+          {
+            "code": "seo",
+            "name": "Search Engine Optimization"
+          },
+          {
+            "code": "google-ads",
+            "name": "Google Ads / PPC"
+          },
+          {
+            "code": "pop-id",
+            "name": "POP ID",
+            "quantity": 1
+          }
+        ],
+        "seo_location": [
+          "state-wise",
+          "india"
+        ],
+        "adwords_period": "Monthly",
+        "adwords_keywords": "5",
+        "adwords_location": "India",
+        "seo_keyword_range": [
+          "upto-25"
+        ],
+        "seo_keywords_list": "Commercial Acoustic Enclosures, Room Acoustic, Acoustic Louver Doors, Acoustic Hanging Baffles, Acoustic Enclosures, Chillers Noise Control",
+        "adwords_keywords_list": "Sound Proof Enclosures, Acoustic Enclosures, Sound Barrier Wall, Room Acoustic, Acoustic Louvers"
+      },
+      "created_at": "2026-02-27T17:32:13.000799+00:00",
+      "updated_at": "2026-02-27T17:32:13.060110+00:00"
+    },
+    {
+      "client_id": "ORD-20260227-008",
+      "name": "INDMK Engineering & Construction Pvt. Ltd.",
+      "status": "active",
+      "is_premium": true,
+      "company_name": "INDMK Engineering & Construction Pvt. Ltd.",
+      "contact_person": "Khan Sir",
+      "designation": "Director",
+      "address": "Plot No.E-18, Additional Indl. Area, Anand Nagar, MIDC, Ambarnath (E), Dist. Thane - 421506, Maharashtra, India.",
+      "phone": "+91-8600604615 / +91-7774011993 +91 - 7774011999",
+      "email": "info@epccontractors.in",
+      "domain_name": "https://www.epccontractors.in/",
+      "gst_no": null,
+      "logo": null,
+      "city": null,
+      "state": null,
+      "description": null,
+      "package_amount": 40000,
+      "gst_amount": 7200,
+      "total_amount": 47200,
+      "customer_no": "ORD-20260227-008",
+      "order_date": null,
+      "order_data": {
+        "services": [
+          {
+            "code": "domain-hosting",
+            "name": "Domain & Hosting"
+          },
+          {
+            "code": "website-design-development",
+            "name": "Website Design / Development"
+          },
+          {
+            "code": "seo",
+            "name": "Search Engine Optimization"
+          },
+          {
+            "code": "pop-id",
+            "name": "POP ID",
+            "quantity": 1
+          }
+        ],
+        "seo_location": [
+          "state-wise"
+        ],
+        "seo_keyword_range": [
+          "upto-25"
+        ],
+        "seo_keywords_list": "EPC Contractor, Engineering Contractor, Construction Contractor, INDMK offers solutions to clients for Project Management"
+      },
+      "created_at": "2026-02-27T17:34:43.228068+00:00",
+      "updated_at": "2026-02-27T17:34:43.269195+00:00"
+    }
+  ],
+  "related_tables": {
+    "client_api_keys": [
+      {
+        "id": "16d8ddef-104d-4cb1-847a-8f7f20bbd1f1",
+        "client_id": "ORD-20260211-001",
+        "key_hash": "562ca0ecf91b65ea859a9e825480f220b9867e451d2283a11ba893bd63e4f182",
+        "key_prefix": "lead_live_hdIdTD6s",
+        "scopes": [
+          "leads:create"
+        ],
+        "status": "active",
+        "expires_at": "2027-02-01T17:02:00+00:00",
+        "last_used_at": "2026-02-14T16:22:04.324173+00:00",
+        "created_at": "2026-02-11T11:32:13.239765+00:00",
+        "updated_at": "2026-02-14T16:22:04.271341+00:00"
+      }
+    ],
+    "client_integrations": [],
+    "client_products": [],
+    "client_services": [
+      {
+        "id": "529a271b-cddc-4bd1-b753-a59271e109a7",
+        "client_id": "ORD-20260211-001",
+        "service_id": "4c754b46-1889-4295-ade8-5f8900746746",
+        "quantity": null,
+        "status": "active",
+        "created_at": "2026-02-11T11:03:37.149177+00:00",
+        "updated_at": "2026-02-11T11:03:37.149177+00:00"
+      },
+      {
+        "id": "ed8545d5-299e-4877-9221-6fbc19b970c4",
+        "client_id": "ORD-20260211-001",
+        "service_id": "e52e8ab6-68a4-45d1-aa4c-01f75a663543",
+        "quantity": null,
+        "status": "active",
+        "created_at": "2026-02-11T11:03:37.149177+00:00",
+        "updated_at": "2026-02-11T11:03:37.149177+00:00"
+      },
+      {
+        "id": "5410b94a-9dea-476b-9dd7-72dd91edb715",
+        "client_id": "ORD-20260211-001",
+        "service_id": "7ecc4d50-76b1-4dba-b086-ff0d0e2c0c78",
+        "quantity": null,
+        "status": "active",
+        "created_at": "2026-02-11T11:03:37.149177+00:00",
+        "updated_at": "2026-02-11T11:03:37.149177+00:00"
+      },
+      {
+        "id": "5c0e4e07-9cd4-4cb1-8bbf-b4b226aa24dc",
+        "client_id": "ORD-20260227-001",
+        "service_id": "e52e8ab6-68a4-45d1-aa4c-01f75a663543",
+        "quantity": null,
+        "status": "active",
+        "created_at": "2026-02-27T17:08:08.284088+00:00",
+        "updated_at": "2026-02-27T17:08:08.284088+00:00"
+      },
+      {
+        "id": "e9fca5aa-b580-4def-a98a-99f123ed1f8f",
+        "client_id": "ORD-20260227-001",
+        "service_id": "7ecc4d50-76b1-4dba-b086-ff0d0e2c0c78",
+        "quantity": null,
+        "status": "active",
+        "created_at": "2026-02-27T17:08:08.284088+00:00",
+        "updated_at": "2026-02-27T17:08:08.284088+00:00"
+      },
+      {
+        "id": "9f5fb1b2-f46a-474c-aafe-4471c15a22b6",
+        "client_id": "ORD-20260227-001",
+        "service_id": "4c754b46-1889-4295-ade8-5f8900746746",
+        "quantity": null,
+        "status": "active",
+        "created_at": "2026-02-27T17:08:08.284088+00:00",
+        "updated_at": "2026-02-27T17:08:08.284088+00:00"
+      },
+      {
+        "id": "edb6ee9c-3144-4acd-8237-f322520b45df",
+        "client_id": "ORD-20260227-001",
+        "service_id": "c905d9fb-abc8-4c8e-b77e-ff7bd5ab32c9",
+        "quantity": 1,
+        "status": "active",
+        "created_at": "2026-02-27T17:08:08.284088+00:00",
+        "updated_at": "2026-02-27T17:08:08.284088+00:00"
+      },
+      {
+        "id": "4d22f6ac-04bc-4621-9cb2-12c39cab2f44",
+        "client_id": "ORD-20260227-002",
+        "service_id": "4c754b46-1889-4295-ade8-5f8900746746",
+        "quantity": null,
+        "status": "active",
+        "created_at": "2026-02-27T17:12:16.959639+00:00",
+        "updated_at": "2026-02-27T17:12:16.959639+00:00"
+      },
+      {
+        "id": "315965e5-13a1-492d-9232-2ac7d435951f",
+        "client_id": "ORD-20260227-002",
+        "service_id": "e52e8ab6-68a4-45d1-aa4c-01f75a663543",
+        "quantity": null,
+        "status": "active",
+        "created_at": "2026-02-27T17:12:16.959639+00:00",
+        "updated_at": "2026-02-27T17:12:16.959639+00:00"
+      },
+      {
+        "id": "70daf484-45b7-46e4-8c11-0bd467c6dd24",
+        "client_id": "ORD-20260227-002",
+        "service_id": "7ecc4d50-76b1-4dba-b086-ff0d0e2c0c78",
+        "quantity": null,
+        "status": "active",
+        "created_at": "2026-02-27T17:12:16.959639+00:00",
+        "updated_at": "2026-02-27T17:12:16.959639+00:00"
+      },
+      {
+        "id": "0ad1994e-b828-471d-81f5-889db6d8f4c8",
+        "client_id": "ORD-20260227-002",
+        "service_id": "c905d9fb-abc8-4c8e-b77e-ff7bd5ab32c9",
+        "quantity": 1,
+        "status": "active",
+        "created_at": "2026-02-27T17:12:16.959639+00:00",
+        "updated_at": "2026-02-27T17:12:16.959639+00:00"
+      },
+      {
+        "id": "4d65603f-9d46-4662-b28b-d528809919ca",
+        "client_id": "ORD-20260227-003",
+        "service_id": "4c754b46-1889-4295-ade8-5f8900746746",
+        "quantity": null,
+        "status": "active",
+        "created_at": "2026-02-27T17:16:23.089448+00:00",
+        "updated_at": "2026-02-27T17:16:23.089448+00:00"
+      },
+      {
+        "id": "d7d6aafe-0a73-4f09-ae17-0f807812b838",
+        "client_id": "ORD-20260227-003",
+        "service_id": "e52e8ab6-68a4-45d1-aa4c-01f75a663543",
+        "quantity": null,
+        "status": "active",
+        "created_at": "2026-02-27T17:16:23.089448+00:00",
+        "updated_at": "2026-02-27T17:16:23.089448+00:00"
+      },
+      {
+        "id": "4aa02fec-e94c-442e-88af-4fca626e4a2f",
+        "client_id": "ORD-20260227-003",
+        "service_id": "7ecc4d50-76b1-4dba-b086-ff0d0e2c0c78",
+        "quantity": null,
+        "status": "active",
+        "created_at": "2026-02-27T17:16:23.089448+00:00",
+        "updated_at": "2026-02-27T17:16:23.089448+00:00"
+      },
+      {
+        "id": "84a70834-08d0-419b-9bb6-36072cf473f5",
+        "client_id": "ORD-20260227-004",
+        "service_id": "4c754b46-1889-4295-ade8-5f8900746746",
+        "quantity": null,
+        "status": "active",
+        "created_at": "2026-02-27T17:19:12.829783+00:00",
+        "updated_at": "2026-02-27T17:19:12.829783+00:00"
+      },
+      {
+        "id": "b0c50ab6-c29d-4d13-bf9d-e6adb9fd408f",
+        "client_id": "ORD-20260227-004",
+        "service_id": "e52e8ab6-68a4-45d1-aa4c-01f75a663543",
+        "quantity": null,
+        "status": "active",
+        "created_at": "2026-02-27T17:19:12.829783+00:00",
+        "updated_at": "2026-02-27T17:19:12.829783+00:00"
+      },
+      {
+        "id": "47cf28a9-9f18-43a2-ae26-c829b5b4d5a2",
+        "client_id": "ORD-20260227-004",
+        "service_id": "7ecc4d50-76b1-4dba-b086-ff0d0e2c0c78",
+        "quantity": null,
+        "status": "active",
+        "created_at": "2026-02-27T17:19:12.829783+00:00",
+        "updated_at": "2026-02-27T17:19:12.829783+00:00"
+      },
+      {
+        "id": "99310f62-b7e6-48da-b307-6cf33184aedd",
+        "client_id": "ORD-20260227-005",
+        "service_id": "4c754b46-1889-4295-ade8-5f8900746746",
+        "quantity": null,
+        "status": "active",
+        "created_at": "2026-02-27T17:25:54.863079+00:00",
+        "updated_at": "2026-02-27T17:25:54.863079+00:00"
+      },
+      {
+        "id": "e6eed3d5-3f13-4cd5-abb9-8c5d1618e23b",
+        "client_id": "ORD-20260227-005",
+        "service_id": "e52e8ab6-68a4-45d1-aa4c-01f75a663543",
+        "quantity": null,
+        "status": "active",
+        "created_at": "2026-02-27T17:25:54.863079+00:00",
+        "updated_at": "2026-02-27T17:25:54.863079+00:00"
+      },
+      {
+        "id": "f5da54cc-7c6a-4735-a5e1-9df452ae11b7",
+        "client_id": "ORD-20260227-005",
+        "service_id": "7ecc4d50-76b1-4dba-b086-ff0d0e2c0c78",
+        "quantity": null,
+        "status": "active",
+        "created_at": "2026-02-27T17:25:54.863079+00:00",
+        "updated_at": "2026-02-27T17:25:54.863079+00:00"
+      },
+      {
+        "id": "dbc1534f-a8c5-417f-8505-2c50ffbf29ba",
+        "client_id": "ORD-20260227-005",
+        "service_id": "4086b472-4005-413a-9334-d0e0c804cd35",
+        "quantity": null,
+        "status": "active",
+        "created_at": "2026-02-27T17:25:54.863079+00:00",
+        "updated_at": "2026-02-27T17:25:54.863079+00:00"
+      },
+      {
+        "id": "a610214a-c6bd-499f-a911-f7249cfc01ad",
+        "client_id": "ORD-20260227-006",
+        "service_id": "4c754b46-1889-4295-ade8-5f8900746746",
+        "quantity": null,
+        "status": "active",
+        "created_at": "2026-02-27T17:29:23.781969+00:00",
+        "updated_at": "2026-02-27T17:29:23.781969+00:00"
+      },
+      {
+        "id": "981b6eaa-7be4-4426-bf37-8ec52ae272af",
+        "client_id": "ORD-20260227-006",
+        "service_id": "e52e8ab6-68a4-45d1-aa4c-01f75a663543",
+        "quantity": null,
+        "status": "active",
+        "created_at": "2026-02-27T17:29:23.781969+00:00",
+        "updated_at": "2026-02-27T17:29:23.781969+00:00"
+      },
+      {
+        "id": "8d53d1f4-f4cb-49aa-8149-2430cbc02448",
+        "client_id": "ORD-20260227-006",
+        "service_id": "7ecc4d50-76b1-4dba-b086-ff0d0e2c0c78",
+        "quantity": null,
+        "status": "active",
+        "created_at": "2026-02-27T17:29:23.781969+00:00",
+        "updated_at": "2026-02-27T17:29:23.781969+00:00"
+      },
+      {
+        "id": "713f2ed2-6b37-4c2d-b4cb-f1d9c0a48459",
+        "client_id": "ORD-20260227-006",
+        "service_id": "4086b472-4005-413a-9334-d0e0c804cd35",
+        "quantity": null,
+        "status": "active",
+        "created_at": "2026-02-27T17:29:23.781969+00:00",
+        "updated_at": "2026-02-27T17:29:23.781969+00:00"
+      },
+      {
+        "id": "266e674d-413b-4499-9287-ee281f9d3584",
+        "client_id": "ORD-20260227-006",
+        "service_id": "c905d9fb-abc8-4c8e-b77e-ff7bd5ab32c9",
+        "quantity": 1,
+        "status": "active",
+        "created_at": "2026-02-27T17:29:23.781969+00:00",
+        "updated_at": "2026-02-27T17:29:23.781969+00:00"
+      },
+      {
+        "id": "8d63519a-f8d4-4e45-860f-9f503c3aec25",
+        "client_id": "ORD-20260227-007",
+        "service_id": "4c754b46-1889-4295-ade8-5f8900746746",
+        "quantity": null,
+        "status": "active",
+        "created_at": "2026-02-27T17:32:13.000799+00:00",
+        "updated_at": "2026-02-27T17:32:13.000799+00:00"
+      },
+      {
+        "id": "910c9f58-ea8d-4d0c-a45c-3ebc8e199de6",
+        "client_id": "ORD-20260227-007",
+        "service_id": "e52e8ab6-68a4-45d1-aa4c-01f75a663543",
+        "quantity": null,
+        "status": "active",
+        "created_at": "2026-02-27T17:32:13.000799+00:00",
+        "updated_at": "2026-02-27T17:32:13.000799+00:00"
+      },
+      {
+        "id": "1970c54e-abd5-4595-b6f9-df306ff6152b",
+        "client_id": "ORD-20260227-007",
+        "service_id": "7ecc4d50-76b1-4dba-b086-ff0d0e2c0c78",
+        "quantity": null,
+        "status": "active",
+        "created_at": "2026-02-27T17:32:13.000799+00:00",
+        "updated_at": "2026-02-27T17:32:13.000799+00:00"
+      },
+      {
+        "id": "1f6ca5b9-ace4-4291-87da-33fa6a1cd37c",
+        "client_id": "ORD-20260227-007",
+        "service_id": "4086b472-4005-413a-9334-d0e0c804cd35",
+        "quantity": null,
+        "status": "active",
+        "created_at": "2026-02-27T17:32:13.000799+00:00",
+        "updated_at": "2026-02-27T17:32:13.000799+00:00"
+      },
+      {
+        "id": "b7974b79-f21c-4a14-a598-9ad79ca1124c",
+        "client_id": "ORD-20260227-007",
+        "service_id": "c905d9fb-abc8-4c8e-b77e-ff7bd5ab32c9",
+        "quantity": 1,
+        "status": "active",
+        "created_at": "2026-02-27T17:32:13.000799+00:00",
+        "updated_at": "2026-02-27T17:32:13.000799+00:00"
+      },
+      {
+        "id": "8f2ec751-7c46-4a16-981d-d508a95c0d4b",
+        "client_id": "ORD-20260227-008",
+        "service_id": "4c754b46-1889-4295-ade8-5f8900746746",
+        "quantity": null,
+        "status": "active",
+        "created_at": "2026-02-27T17:34:43.228068+00:00",
+        "updated_at": "2026-02-27T17:34:43.228068+00:00"
+      },
+      {
+        "id": "8bd21a36-5993-4477-a6ac-ed6ff5e4278a",
+        "client_id": "ORD-20260227-008",
+        "service_id": "e52e8ab6-68a4-45d1-aa4c-01f75a663543",
+        "quantity": null,
+        "status": "active",
+        "created_at": "2026-02-27T17:34:43.228068+00:00",
+        "updated_at": "2026-02-27T17:34:43.228068+00:00"
+      },
+      {
+        "id": "5d22f90f-8ecb-40a6-8459-86aa12ddb28e",
+        "client_id": "ORD-20260227-008",
+        "service_id": "7ecc4d50-76b1-4dba-b086-ff0d0e2c0c78",
+        "quantity": null,
+        "status": "active",
+        "created_at": "2026-02-27T17:34:43.228068+00:00",
+        "updated_at": "2026-02-27T17:34:43.228068+00:00"
+      },
+      {
+        "id": "a8087353-f579-4d3a-88db-0194d77a5162",
+        "client_id": "ORD-20260227-008",
+        "service_id": "c905d9fb-abc8-4c8e-b77e-ff7bd5ab32c9",
+        "quantity": 1,
+        "status": "active",
+        "created_at": "2026-02-27T17:34:43.228068+00:00",
+        "updated_at": "2026-02-27T17:34:43.228068+00:00"
+      }
+    ],
+    "clients": [
+      {
+        "client_id": "ORD-20260211-001",
+        "name": "SPARK SYSTEMS ",
+        "status": "active",
+        "created_at": "2026-02-11T11:03:37.149177+00:00",
+        "updated_at": "2026-02-11T11:03:37.149177+00:00",
+        "company_name": "SPARK SYSTEMS ",
+        "contact_person": "Nilesh Gaikwad ",
+        "designation": null,
+        "address": "308, Bhawani Peth, Timbar Market Road, Pune - 411042",
+        "phone": "9699799144",
+        "email": "info@spark-group.in",
+        "domain_name": "www.spark-group.in",
+        "gst_no": null,
+        "package_amount": 75000,
+        "gst_amount": 13500,
+        "total_amount": 88500,
+        "customer_no": "ORD-20260211-001",
+        "order_date": "2026-01-22",
+        "order_data": {
+          "services": [
+            {
+              "code": "domain-hosting",
+              "name": "Domain & Hosting"
+            },
+            {
+              "code": "website-design-development",
+              "name": "Website Design / Development"
+            },
+            {
+              "code": "seo",
+              "name": "Search Engine Optimization"
+            }
+          ],
+          "guidelines": "Need to google promotion in only Pune city ",
+          "seo_keyword_range": [
+            "upto-25"
+          ],
+          "seo_keywords_list": "Tyrolit Dealers in Pune\nIFSC Dealer in Pune \nBosch Dealer in Pune\n",
+          "special_guidelines": "The client has already paid 15,000 of the 75,000 package amount; the remaining sum is the outstanding balance. He will pay us the whole sum if we respond well to him and there is a local inquiry; if not, we have already decided that this package will cost 40,000."
+        },
+        "is_premium": false,
+        "logo": null,
+        "city": null,
+        "state": null,
+        "description": null
+      },
+      {
+        "client_id": "ORD-20260227-001",
+        "name": "Pooja Lab Equipments",
+        "status": "active",
+        "created_at": "2026-02-27T17:08:08.284088+00:00",
+        "updated_at": "2026-02-27T17:08:08.526696+00:00",
+        "company_name": "Pooja Lab Equipments",
+        "contact_person": "Karthik K Nair",
+        "designation": "Partner",
+        "address": "22, Gr. Floor, Bhandup Indl. Estate, Pannalal Compound, LBS Marg, Bhandup (W), Mumbai-400078",
+        "phone": "022-67987938, 022-25968723",
+        "email": "poojalabequipments@yahoo.in",
+        "domain_name": "https://www.poojalabequips.com/",
+        "gst_no": null,
+        "package_amount": 45000,
+        "gst_amount": 8100,
+        "total_amount": 53100,
+        "customer_no": "ORD-20260227-001",
+        "order_date": null,
+        "order_data": {
+          "services": [
+            {
+              "code": "website-design-development",
+              "name": "Website Design / Development"
+            },
+            {
+              "code": "seo",
+              "name": "Search Engine Optimization"
+            },
+            {
+              "code": "domain-hosting",
+              "name": "Domain & Hosting"
+            },
+            {
+              "code": "pop-id",
+              "name": "POP ID",
+              "quantity": 1
+            }
+          ],
+          "seo_location": [
+            "state-wise",
+            "india"
+          ],
+          "seo_keyword_range": [
+            "upto-25"
+          ],
+          "seo_keywords_list": "Chromatography Refrigerator, Pharmaceutical / Medical Refrigerator, B.O.D. Incubator, Ice Flaker, Illuminated Plant Growth Chamber, Stability Chamber, Freezer cum Refrigerator, Ultra Low Temperature Deep Freezer, Low Temperature Deep Freezer, Deep Freezer Vertical & Horizontal, Orbital Shaking Incubator, Cryostat Bath, Vertical Bacteriological Incubator",
+          "special_guidelines": "All India Promotion"
+        },
+        "is_premium": true,
+        "logo": null,
+        "city": null,
+        "state": null,
+        "description": null
+      },
+      {
+        "client_id": "ORD-20260227-002",
+        "name": "S Napkin Bouquet",
+        "status": "active",
+        "created_at": "2026-02-27T17:12:16.959639+00:00",
+        "updated_at": "2026-02-27T17:12:17.060431+00:00",
+        "company_name": "S Napkin Bouquet",
+        "contact_person": "Mansi Pol",
+        "designation": "Director",
+        "address": "Janani All In One Store, Sanskruti Apt, Plot No 13, Sec- 34, ICICI Bank Lane, behind pratik garden Kamothe, navi mumbai, Pin - 410209",
+        "phone": " +91 98678 30335",
+        "email": "info@napkinbouquet.com",
+        "domain_name": "https://www.napkinbouquet.com/",
+        "gst_no": null,
+        "package_amount": 32000,
+        "gst_amount": 5760,
+        "total_amount": 37760,
+        "customer_no": "ORD-20260227-002",
+        "order_date": null,
+        "order_data": {
+          "services": [
+            {
+              "code": "domain-hosting",
+              "name": "Domain & Hosting"
+            },
+            {
+              "code": "website-design-development",
+              "name": "Website Design / Development"
+            },
+            {
+              "code": "seo",
+              "name": "Search Engine Optimization"
+            },
+            {
+              "code": "pop-id",
+              "name": "POP ID",
+              "quantity": 1
+            }
+          ],
+          "seo_keyword_range": [
+            "upto-25"
+          ],
+          "seo_keywords_list": "napkin bouquet"
+        },
+        "is_premium": true,
+        "logo": null,
+        "city": null,
+        "state": null,
+        "description": null
+      },
+      {
+        "client_id": "ORD-20260227-003",
+        "name": "RECO Transformers Pvt.Ltd",
+        "status": "active",
+        "created_at": "2026-02-27T17:16:23.089448+00:00",
+        "updated_at": "2026-02-27T17:16:23.125964+00:00",
+        "company_name": "RECO Transformers Pvt.Ltd",
+        "contact_person": "Nitin Prabhu",
+        "designation": "Partner",
+        "address": "Hanuman Industrial Est, 18, GD Ambekar Marg, Sahakar Nagar, Wadala, Mumbai, Maharashtra 400031",
+        "phone": "+91 9324748199 | +91 8879755871",
+        "email": "rkv@reco-transformers.com",
+        "domain_name": "https://www.reco-transformers.com/",
+        "gst_no": null,
+        "package_amount": 50000,
+        "gst_amount": 9000,
+        "total_amount": 59000,
+        "customer_no": "ORD-20260227-003",
+        "order_date": null,
+        "order_data": {
+          "services": [
+            {
+              "code": "domain-hosting",
+              "name": "Domain & Hosting"
+            },
+            {
+              "code": "website-design-development",
+              "name": "Website Design / Development"
+            },
+            {
+              "code": "seo",
+              "name": "Search Engine Optimization"
+            }
+          ],
+          "seo_keyword_range": [
+            "upto-25"
+          ],
+          "seo_keywords_list": "Low Voltage Transformers, Low Voltage Current Transformers, Voltage Transformers, Control Transformers, Current Transformers, Resin Cast Current Transformers, Resin Cast Ring Type CT, Resin Cast Window Type CT, Resin Cast Wound Primary CT, Resin Cast Ring Main Unit CT, ABS Encapsulated Current Transformers"
+        },
+        "is_premium": true,
+        "logo": null,
+        "city": null,
+        "state": null,
+        "description": null
+      },
+      {
+        "client_id": "ORD-20260227-004",
+        "name": "Mercantile Electric Corporation",
+        "status": "active",
+        "created_at": "2026-02-27T17:19:12.829783+00:00",
+        "updated_at": "2026-02-27T17:19:12.829783+00:00",
+        "company_name": "Mercantile Electric Corporation",
+        "contact_person": "Mr. Dhiren Somaiya",
+        "designation": "Director",
+        "address": "154, Kantilal Sharma Marg, Lohar Chawl, Mumbai - 400002",
+        "phone": "022-22089295 | 022-22062688",
+        "email": null,
+        "domain_name": "https://www.mercantileelectric.in/",
+        "gst_no": null,
+        "package_amount": 40000,
+        "gst_amount": 7200,
+        "total_amount": 47200,
+        "customer_no": "ORD-20260227-004",
+        "order_date": null,
+        "order_data": {
+          "services": [
+            {
+              "code": "domain-hosting",
+              "name": "Domain & Hosting"
+            },
+            {
+              "code": "website-design-development",
+              "name": "Website Design / Development"
+            },
+            {
+              "code": "seo",
+              "name": "Search Engine Optimization"
+            }
+          ],
+          "seo_location": [
+            "state-wise",
+            "india"
+          ],
+          "seo_keyword_range": [
+            "upto-25"
+          ],
+          "seo_keywords_list": "Cable Ties, Zip Ties, Cable Wraps, Nylon Cable Ties, Color Cable Ties, Tag Ties, Push Mount Cable Ties, Self Adhesive Tie Mount Sticker, Stainless Steel Cable Ties, Releasable Cable Ties, Hydraulic Tools, Hand Crimping Tools, Hydraulic Cable Crimper, XTRA Hydraulic Tools, XTRA Crimping Tools, XTRA Taiwan Tools, XTRA Solar Tools, XTRA Cable Cutters"
+        },
+        "is_premium": false,
+        "logo": null,
+        "city": null,
+        "state": null,
+        "description": null
+      },
+      {
+        "client_id": "ORD-20260227-005",
+        "name": " ERAM SOLAR POWER SOLUTIONS",
+        "status": "active",
+        "created_at": "2026-02-27T17:25:54.863079+00:00",
+        "updated_at": "2026-02-27T17:25:54.914850+00:00",
+        "company_name": " ERAM SOLAR POWER SOLUTIONS",
+        "contact_person": "Khan Sir",
+        "designation": "Director",
+        "address": "Globe Business Park, Plot No-30 Office No. 202, 2nd Floor, Kalyan - Badlapur Rd, Ambernath, Maharashtra 421501",
+        "phone": "+91 77740 11993",
+        "email": "erampowerprojects@gmail.com",
+        "domain_name": "https://www.eramsolar.net/",
+        "gst_no": null,
+        "package_amount": 50000,
+        "gst_amount": 9000,
+        "total_amount": 59000,
+        "customer_no": "ORD-20260227-005",
+        "order_date": null,
+        "order_data": {
+          "services": [
+            {
+              "code": "domain-hosting",
+              "name": "Domain & Hosting"
+            },
+            {
+              "code": "website-design-development",
+              "name": "Website Design / Development"
+            },
+            {
+              "code": "seo",
+              "name": "Search Engine Optimization"
+            },
+            {
+              "code": "google-ads",
+              "name": "Google Ads / PPC"
+            }
+          ],
+          "seo_location": [
+            "state-wise",
+            "india"
+          ],
+          "adwords_period": "Monthly",
+          "adwords_keywords": "5",
+          "adwords_location": "India",
+          "seo_keyword_range": [
+            "upto-25"
+          ],
+          "seo_keywords_list": "Commercial Solar Panels, Industrial Solar Panels, Solar Design Solutions, Industrial Solar Rooftop System, Solar Panels",
+          "adwords_keywords_list": "Commercial Solar Panels, Industrial Solar Panels, Solar Design Solutions, Industrial Solar Rooftop System, Solar Panels"
+        },
+        "is_premium": true,
+        "logo": null,
+        "city": null,
+        "state": null,
+        "description": null
+      },
+      {
+        "client_id": "ORD-20260227-006",
+        "name": "ERAM POWER PROJECTS",
+        "status": "active",
+        "created_at": "2026-02-27T17:29:23.781969+00:00",
+        "updated_at": "2026-02-27T17:29:23.832085+00:00",
+        "company_name": "ERAM POWER PROJECTS",
+        "contact_person": "Khan Sir",
+        "designation": "Director",
+        "address": "Globe Business park, Plot no-30, Office No. 202, 2nd Floor, Kalyan Badlapur Rd, Ambarnath (w) Maharashtra - 421501 . INDIA.",
+        "phone": "+91-8600604615 / +91-7774011993 /",
+        "email": "info@eramgenset.net",
+        "domain_name": "https://www.eramgenset.net/",
+        "gst_no": null,
+        "package_amount": 50000,
+        "gst_amount": 9000,
+        "total_amount": 59000,
+        "customer_no": "ORD-20260227-006",
+        "order_date": null,
+        "order_data": {
+          "services": [
+            {
+              "code": "domain-hosting",
+              "name": "Domain & Hosting"
+            },
+            {
+              "code": "website-design-development",
+              "name": "Website Design / Development"
+            },
+            {
+              "code": "seo",
+              "name": "Search Engine Optimization"
+            },
+            {
+              "code": "google-ads",
+              "name": "Google Ads / PPC"
+            },
+            {
+              "code": "pop-id",
+              "name": "POP ID",
+              "quantity": 1
+            }
+          ],
+          "seo_location": [
+            "state-wise",
+            "india"
+          ],
+          "adwords_period": "Monthly",
+          "adwords_keywords": "6",
+          "adwords_location": "India",
+          "seo_keyword_range": [
+            "upto-25"
+          ],
+          "seo_keywords_list": "DG Set, DG Sets, DG Generator, DG Generators, Diesel Generator, Diesel Generators, Diesel Generating Set, Diesel Generating Sets, Domestic Diesel Generator",
+          "adwords_keywords_list": "DG Set, DG Sets, DG Generator, DG Generators, Diesel Generator, Diesel Generators, Diesel Generating Set, Diesel Generating Sets"
+        },
+        "is_premium": true,
+        "logo": null,
+        "city": null,
+        "state": null,
+        "description": null
+      },
+      {
+        "client_id": "ORD-20260227-007",
+        "name": "Eram Engineering Services",
+        "status": "active",
+        "created_at": "2026-02-27T17:32:13.000799+00:00",
+        "updated_at": "2026-02-27T17:32:13.060110+00:00",
+        "company_name": "Eram Engineering Services",
+        "contact_person": "Khan Sir",
+        "designation": "Director",
+        "address": "Plot No.E-18 Additional Industrial Area, Anand Nagar, MIDC, Ambernath (E) - 421506, Dist- Thane",
+        "phone": "0251-3508285 , +91 7774011993",
+        "email": "info@eramsoundproofenclosures.com",
+        "domain_name": "https://www.eramsoundproofenclosures.com/",
+        "gst_no": null,
+        "package_amount": 50000,
+        "gst_amount": 9000,
+        "total_amount": 59000,
+        "customer_no": "ORD-20260227-007",
+        "order_date": null,
+        "order_data": {
+          "services": [
+            {
+              "code": "domain-hosting",
+              "name": "Domain & Hosting"
+            },
+            {
+              "code": "website-design-development",
+              "name": "Website Design / Development"
+            },
+            {
+              "code": "seo",
+              "name": "Search Engine Optimization"
+            },
+            {
+              "code": "google-ads",
+              "name": "Google Ads / PPC"
+            },
+            {
+              "code": "pop-id",
+              "name": "POP ID",
+              "quantity": 1
+            }
+          ],
+          "seo_location": [
+            "state-wise",
+            "india"
+          ],
+          "adwords_period": "Monthly",
+          "adwords_keywords": "5",
+          "adwords_location": "India",
+          "seo_keyword_range": [
+            "upto-25"
+          ],
+          "seo_keywords_list": "Commercial Acoustic Enclosures, Room Acoustic, Acoustic Louver Doors, Acoustic Hanging Baffles, Acoustic Enclosures, Chillers Noise Control",
+          "adwords_keywords_list": "Sound Proof Enclosures, Acoustic Enclosures, Sound Barrier Wall, Room Acoustic, Acoustic Louvers"
+        },
+        "is_premium": true,
+        "logo": null,
+        "city": null,
+        "state": null,
+        "description": null
+      },
+      {
+        "client_id": "ORD-20260227-008",
+        "name": "INDMK Engineering & Construction Pvt. Ltd.",
+        "status": "active",
+        "created_at": "2026-02-27T17:34:43.228068+00:00",
+        "updated_at": "2026-02-27T17:34:43.269195+00:00",
+        "company_name": "INDMK Engineering & Construction Pvt. Ltd.",
+        "contact_person": "Khan Sir",
+        "designation": "Director",
+        "address": "Plot No.E-18, Additional Indl. Area, Anand Nagar, MIDC, Ambarnath (E), Dist. Thane - 421506, Maharashtra, India.",
+        "phone": "+91-8600604615 / +91-7774011993 +91 - 7774011999",
+        "email": "info@epccontractors.in",
+        "domain_name": "https://www.epccontractors.in/",
+        "gst_no": null,
+        "package_amount": 40000,
+        "gst_amount": 7200,
+        "total_amount": 47200,
+        "customer_no": "ORD-20260227-008",
+        "order_date": null,
+        "order_data": {
+          "services": [
+            {
+              "code": "domain-hosting",
+              "name": "Domain & Hosting"
+            },
+            {
+              "code": "website-design-development",
+              "name": "Website Design / Development"
+            },
+            {
+              "code": "seo",
+              "name": "Search Engine Optimization"
+            },
+            {
+              "code": "pop-id",
+              "name": "POP ID",
+              "quantity": 1
+            }
+          ],
+          "seo_location": [
+            "state-wise"
+          ],
+          "seo_keyword_range": [
+            "upto-25"
+          ],
+          "seo_keywords_list": "EPC Contractor, Engineering Contractor, Construction Contractor, INDMK offers solutions to clients for Project Management"
+        },
+        "is_premium": true,
+        "logo": null,
+        "city": null,
+        "state": null,
+        "description": null
+      }
+    ],
+    "leads": [
+      {
+        "id": "7ab5347c-04a2-45df-aef6-748871812122",
+        "client_id": "ORD-20260211-001",
+        "created_by_user_client_id": null,
+        "name": "Dhananjay Phirke",
+        "email": "dhananjayphirke@gmail.com",
+        "phone": "+919119510726",
+        "source": "website",
+        "lead_reference_id": null,
+        "raw_payload": {
+          "email": "dhananjayphirke@gmail.com",
+          "domain": "spark-group.in",
+          "mobile": "+919119510726",
+          "address": "203, Prathmesh Society, Kadam wak wasti",
+          "full_name": "Dhananjay Phirke",
+          "captcha_id": "5fb865d4-5957-4541-a746-5ae20d203bbd",
+          "csrf_token": "52be7dc7-6a42-486e-bd84-792d6ba640ae",
+          "captcha_text": "FT2M2",
+          "company_name": "fghjkl",
+          "owner_emails": [
+            "dhananjayphirke@gmail.com"
+          ],
+          "form_timestamp": "1770840753",
+          "enquiry_details": "Test mail"
+        },
+        "created_at": "2026-02-11T20:12:58.589575+00:00",
+        "updated_at": "2026-02-11T20:12:58.589575+00:00"
+      },
+      {
+        "id": "525f8873-bd96-4801-9cb9-c902192043ec",
+        "client_id": "ORD-20260211-001",
+        "created_by_user_client_id": null,
+        "name": "test mail",
+        "email": "test@gmail.com",
+        "phone": "+1234567890",
+        "source": "website",
+        "lead_reference_id": null,
+        "raw_payload": {
+          "email": "test@gmail.com",
+          "domain": "spark-group.in",
+          "mobile": "1234567890",
+          "address": "thane",
+          "full_name": "test mail",
+          "captcha_id": "061bc4ce-25c8-4cd4-8104-8b95c0727ea5",
+          "csrf_token": "9e85e5d4-6cc1-4d21-99b8-ad5e8d3cc0be",
+          "captcha_text": "y8w5s",
+          "company_name": "tesst mail",
+          "owner_emails": [
+            "dhananjayphirke@gmail.com"
+          ],
+          "form_timestamp": "1771086026",
+          "enquiry_details": "test msg ignore"
+        },
+        "created_at": "2026-02-14T16:22:04.409573+00:00",
+        "updated_at": "2026-02-14T16:22:04.409573+00:00"
+      }
+    ],
+    "transactions": [
+      {
+        "id": "64706a92-e434-484f-b548-f6013dd0a048",
+        "client_id": "ORD-20260211-001",
+        "transaction_id": "958641534111",
+        "amount": 15000,
+        "status": "verified",
+        "verified_by_user_id": "301620e5-aeb4-4c85-a8f9-c85e3c92fd2b",
+        "verified_at": "2026-02-12T04:11:12.612443+00:00",
+        "notes": null,
+        "created_at": "2026-02-12T04:11:07.870217+00:00",
+        "updated_at": "2026-02-12T04:11:12.611167+00:00",
+        "payment_method": "UPI",
+        "created_by_user_id": "301620e5-aeb4-4c85-a8f9-c85e3c92fd2b",
+        "rejection_reason": null
+      }
+    ],
+    "user_clients": [
+      {
+        "id": "31bec965-8a79-4ac8-b065-aa8910d2e541",
+        "user_id": "466ebb45-10a1-4d73-9f1b-08445c365e10",
+        "client_id": null,
+        "role_id": "14f903dd-4e95-4f0c-8688-1faee196f263",
+        "reports_to_user_client_id": null,
+        "status": "active",
+        "created_at": "2026-02-06T07:34:50.902373+00:00",
+        "updated_at": "2026-02-06T07:34:50.902373+00:00"
+      },
+      {
+        "id": "6e34ab3c-f655-4982-b538-8ad49a99a71b",
+        "user_id": "2f8f0ec8-47e3-4dd1-a978-06afaa0da732",
+        "client_id": null,
+        "role_id": "14f903dd-4e95-4f0c-8688-1faee196f263",
+        "reports_to_user_client_id": null,
+        "status": "active",
+        "created_at": "2026-02-06T07:38:04.801337+00:00",
+        "updated_at": "2026-02-06T07:38:04.801337+00:00"
+      },
+      {
+        "id": "73396fc5-c21b-48a7-be1b-21d2286c074f",
+        "user_id": "466ebb45-10a1-4d73-9f1b-08445c365e10",
+        "client_id": "ORD-20260211-001",
+        "role_id": "14f903dd-4e95-4f0c-8688-1faee196f263",
+        "reports_to_user_client_id": null,
+        "status": "active",
+        "created_at": "2026-02-12T03:00:06.516443+00:00",
+        "updated_at": "2026-02-12T03:00:06.516443+00:00"
+      }
+    ]
+  },
+  "summary": {
+    "clients_count": 9,
+    "tables_with_client_id": 8,
+    "related_records": 51
+  }
+}

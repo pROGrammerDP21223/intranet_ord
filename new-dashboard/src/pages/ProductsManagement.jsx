@@ -2,9 +2,11 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Layout from '../components/Layout';
 import DataTable from '../components/DataTable';
+import RichTextEditor from '../components/RichTextEditor';
 import { productAPI, categoryAPI, imageUploadAPI } from '../services/api';
 
 const ProductsManagement = () => {
+  const stripHtml = (html) => (html || '').replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -292,7 +294,7 @@ const ProductsManagement = () => {
                   header: 'Description',
                   render: (value) => (
                     <div style={{ maxWidth: '300px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                      {value || 'No description'}
+                      {stripHtml(value) || 'No description'}
                     </div>
                   )
                 },
@@ -407,11 +409,10 @@ const ProductsManagement = () => {
                   </div>
                   <div className="mb-3">
                     <label className="form-label">Description</label>
-                    <textarea
-                      className="form-control"
-                      rows="3"
+                    <RichTextEditor
                       value={formData.description}
-                      onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                      onChange={(content) => setFormData({ ...formData, description: content })}
+                      placeholder="Enter product description..."
                     />
                   </div>
                   <div className="mb-3">
