@@ -19,24 +19,14 @@
     .message { padding: 12px; border-radius: 6px; margin-bottom: 16px; display: none; }
     .message.success { background: #d1e7dd; color: #0f5132; border: 1px solid #badbcc; }
     .message.error { background: #f8d7da; color: #842029; border: 1px solid #f5c2c7; }
-    .config { background: #f8f9fa; padding: 16px; border-radius: 6px; margin-bottom: 24px; font-size: 13px; }
-    .config label { font-size: 12px; }
-    .config input { margin-top: 4px; }
+    .note { background: #f8f9fa; padding: 12px; border-radius: 6px; margin-bottom: 20px; font-size: 12px; color: #495057; }
   </style>
 </head>
 <body>
   <h1>Contact Enquiry Form</h1>
 
-  <div class="config">
-    <p><strong>API Configuration</strong> – Set these before submitting:</p>
-    <div class="form-group">
-      <label>API Base URL (e.g. http://localhost:8080)</label>
-      <input type="text" id="apiBaseUrl" value="http://localhost:8080" placeholder="http://localhost:8080">
-    </div>
-    <div class="form-group">
-      <label>API Key</label>
-      <input type="password" id="apiKey" placeholder="Your API key">
-    </div>
+  <div class="note">
+    Set <code>API_BASE_URL</code> and <code>API_KEY</code> in script once, then copy-paste this form.
   </div>
 
   <div id="msgBox" class="message"></div>
@@ -55,6 +45,11 @@
     <div class="form-group">
       <label for="emailId">Email *</label>
       <input type="email" id="emailId" name="emailId" required maxlength="255" placeholder="john@example.com">
+    </div>
+    <div class="form-group">
+      <label id="captchaQuestion" for="captchaAnswer">Captcha *</label>
+      <input type="text" id="captchaAnswer" name="captchaAnswer" required maxlength="20" placeholder="Type captcha answer">
+      <small id="captchaMeta" style="color:#6c757d"></small>
     </div>
 
     <h3 style="font-size:1rem;margin:20px 0 12px">Extra fields (stored in RawPayload)</h3>
@@ -76,10 +71,6 @@
       <input type="text" id="productInterest" name="productInterest" placeholder="e.g. Website Design">
     </div>
     <div class="form-group">
-      <label for="referrerUrl">Referrer URL (optional)</label>
-      <input type="url" id="referrerUrl" name="referrerUrl" placeholder="https://your-website.com/contact">
-    </div>
-    <div class="form-group">
       <button type="submit" id="submitBtn">Submit Enquiry</button>
     </div>
   </form>
@@ -88,6 +79,33 @@
     const form = document.getElementById('enquiryForm');
     const msgBox = document.getElementById('msgBox');
     const submitBtn = document.getElementById('submitBtn');
+    // ===== Production config: change these 2 values only =====
+    const API_BASE_URL = 'https://intranet.ordbusinesshub.com';
+    const API_KEY = 'PASTE_API_KEY_HERE';
+
+    const REQUEST_TIMEOUT_MS = 15000;
+    const EXTRA_FIELD_IDS = ['enquiryMessage', 'company', 'subject', 'productInterest'];
+
+    // Add hidden bot-trap, CSRF, and captcha-id fields so copied form works anywhere.
+    const honeypotInput = document.createElement('input');
+    honeypotInput.type = 'text';
+    honeypotInput.name = 'website';
+    honeypotInput.autocomplete = 'off';
+    honeypotInput.tabIndex = -1;
+    honeypotInput.style.position = 'absolute';
+    honeypotInput.style.left = '-9999px';
+    honeypotInput.style.opacity = '0';
+    form.appendChild(honeypotInput);
+
+    const csrfInput = document.createElement('input');
+    csrfInput.type = 'hidden';
+    csrfInput.name = 'csrfToken';
+    form.appendChild(csrfInput);
+
+    const captchaIdInput = document.createElement('input');
+    captchaIdInput.type = 'hidden';
+    captchaIdInput.name = 'captchaId';
+    form.appendChild(captchaIdInput);
 
     function showMessage(text, isError = false) {
       msgBox.textContent = text;
@@ -99,10 +117,35 @@
       msgBox.style.display = 'none';
     }
 
-    // Extra field IDs - add any custom field id here to include in rawPayload
-    const EXTRA_FIELD_IDS = ['enquiryMessage', 'company', 'subject', 'productInterest'];
+    function setSubmitLoading(isLoading) {
+      submitBtn.disabled = isLoading;
+      submitBtn.textContent = isLoading ? 'Submitting...' : 'Submit Enquiry';
+    }
 
-    function buildPayload() {
+    function generateCsrfToken() {
+      const bytes = new Uint8Array(32);
+      window.crypto.getRandomValues(bytes);
+      return Array.from(bytes, b => b.toString(16).padStart(2, '0')).join('');
+    }
+
+    function validateInput() {
+      const fullName = document.getElementById('fullName').value.trim();
+      const mobileNumber = document.getElementById('mobileNumber').value.trim();
+      const emailId = document.getElementById('emailId').value.trim();
+
+      if (!fullName || fullName.length > 200) {
+        return 'Please enter a valid full name (max 200 chars).';
+      }
+      if (!/^\+?[1-9]\d{1,14}$/.test(mobileNumber)) {
+        return 'Please enter a valid mobile number in E.164 format.';
+      }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailId) || emailId.length > 255) {
+        return 'Please enter a valid email address.';
+      }
+      return null;
+    }
+
+    function buildPayload(csrfToken) {
       const extra = {};
       for (const id of EXTRA_FIELD_IDS) {
         const el = document.getElementById(id);
@@ -115,58 +158,136 @@
         fullName: document.getElementById('fullName').value.trim(),
         mobileNumber: document.getElementById('mobileNumber').value.trim(),
         emailId: document.getElementById('emailId').value.trim(),
-        source: 'api',
-        referrerUrl: document.getElementById('referrerUrl').value.trim() || window.location.href
+        source: 'website',
+        // Auto-detect domain where this HTML is hosted.
+        referrerUrl: window.location.origin,
+        captchaId: captchaIdInput.value,
+        captchaAnswer: document.getElementById('captchaAnswer').value.trim(),
+        csrfToken: csrfToken,
+        honeypot: honeypotInput.value || ''
       };
+
       if (Object.keys(extra).length > 0) {
         payload.rawPayload = extra;
       }
       return payload;
     }
 
+    async function loadCaptchaChallenge() {
+      const captchaQuestion = document.getElementById('captchaQuestion');
+      const captchaMeta = document.getElementById('captchaMeta');
+      captchaQuestion.textContent = 'Captcha * (loading...)';
+      captchaMeta.textContent = '';
+      captchaIdInput.value = '';
+
+      const response = await fetchWithTimeout(
+        API_BASE_URL.replace(/\/$/, '') + '/api/enquiries/captcha-challenge',
+        {
+          method: 'GET',
+          headers: {
+            'X-API-Key': API_KEY
+          }
+        },
+        REQUEST_TIMEOUT_MS
+      );
+
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok || !data || !data.data || !data.data.captchaId || !data.data.question) {
+        throw new Error(data.message || 'Unable to load captcha challenge.');
+      }
+
+      captchaIdInput.value = data.data.captchaId;
+      captchaQuestion.textContent = 'Captcha *: ' + data.data.question;
+      captchaMeta.textContent = 'Captcha expires in ~5 minutes.';
+    }
+
+    async function fetchWithTimeout(url, options, timeoutMs) {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
+      try {
+        return await fetch(url, { ...options, signal: controller.signal });
+      } finally {
+        clearTimeout(timeoutId);
+      }
+    }
+
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       hideMessage();
 
-      const apiBaseUrl = document.getElementById('apiBaseUrl').value.trim();
-      const apiKey = document.getElementById('apiKey').value.trim();
-
-      if (!apiBaseUrl) {
-        showMessage('Please set the API Base URL.', true);
+      if (!API_BASE_URL || API_BASE_URL.indexOf('PASTE_') !== -1) {
+        showMessage('API_BASE_URL is not configured in script.', true);
         return;
       }
-      if (!apiKey) {
-        showMessage('Please set the API Key.', true);
+      if (!API_KEY || API_KEY.indexOf('PASTE_') !== -1) {
+        showMessage('API_KEY is not configured in script.', true);
+        return;
+      }
+      if (!document.getElementById('captchaAnswer').value.trim()) {
+        showMessage('Please solve captcha.', true);
         return;
       }
 
-      const payload = buildPayload();
+      const validationError = validateInput();
+      if (validationError) {
+        showMessage(validationError, true);
+        return;
+      }
 
-      submitBtn.disabled = true;
+      if (honeypotInput.value) {
+        showMessage('Enquiry submitted successfully!');
+        return;
+      }
+
+      setSubmitLoading(true);
 
       try {
-        const response = await fetch(apiBaseUrl.replace(/\/$/, '') + '/api/enquiries', {
-          method: 'POST',
-          headers: {
-            'X-API-Key': apiKey,
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(payload)
-        });
+        const csrfToken = generateCsrfToken();
+        csrfInput.value = csrfToken;
 
-        const data = await response.json();
+        if (!captchaIdInput.value) {
+          await loadCaptchaChallenge();
+        }
+        const payload = buildPayload(csrfToken);
+
+        const response = await fetchWithTimeout(
+          API_BASE_URL.replace(/\/$/, '') + '/api/enquiries',
+          {
+            method: 'POST',
+            headers: {
+              'X-API-Key': API_KEY,
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
+          },
+          REQUEST_TIMEOUT_MS
+        );
+
+        const data = await response.json().catch(() => ({}));
 
         if (response.ok) {
           showMessage('Enquiry submitted successfully! ID: ' + (data.data?.id || 'N/A'));
           form.reset();
+          await loadCaptchaChallenge();
         } else {
-          showMessage(data.message || 'Failed to submit enquiry.', true);
+          showMessage(data.message || ('Failed to submit enquiry (HTTP ' + response.status + ').'), true);
+          await loadCaptchaChallenge();
         }
       } catch (err) {
-        showMessage('Network error: ' + (err.message || 'Could not connect to API.'), true);
+        if (err && err.name === 'AbortError') {
+          showMessage('Request timed out. Please try again.', true);
+        } else {
+          showMessage('Network/security error: ' + ((err && err.message) || 'Could not submit enquiry.'), true);
+        }
+        try { await loadCaptchaChallenge(); } catch (_) {}
       } finally {
-        submitBtn.disabled = false;
+        setSubmitLoading(false);
       }
+    });
+
+    // Load first captcha challenge on page load.
+    loadCaptchaChallenge().catch((err) => {
+      showMessage('Captcha init failed: ' + ((err && err.message) || 'Unknown error'), true);
     });
   </script>
 </body>

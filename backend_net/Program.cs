@@ -23,6 +23,7 @@ using Microsoft.Extensions.FileProviders;
 using Microsoft.AspNetCore.Http.Features;
 using Hangfire;
 using Hangfire.SqlServer;
+using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.AspNetCore.DataProtection;
 using StackExchange.Redis;
 
@@ -241,6 +242,9 @@ namespace backend_net
                         });
                     }
                 });
+
+                // Override the default CORS policy provider to support dynamic API key origins stored in the DB
+                builder.Services.AddSingleton<ICorsPolicyProvider, DynamicApiKeyCorsPolicyProvider>();
 
                 // Hangfire (Background Jobs)
                 builder.Services.AddHangfire(config => config

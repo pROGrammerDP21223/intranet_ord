@@ -24,6 +24,60 @@ public class EnquiriesController : BaseController
     }
 
     /// <summary>
+    /// Create a custom CAPTCHA challenge for website enquiry forms.
+    /// </summary>
+    [HttpGet("captcha-challenge")]
+    [RequireApiKey]
+    public IActionResult GetCaptchaChallenge()
+    {
+        try
+        {
+            var challenge = _securityService.CreateCustomCaptchaChallenge();
+            return HandleSuccess("Captcha challenge created", new
+            {
+                captchaId = challenge.CaptchaId,
+                question = challenge.Question,
+                expiresInSeconds = 300
+            });
+        }
+        catch (Exception ex)
+        {
+            return HandleError($"Failed to create captcha challenge: {ex.Message}", 500);
+        }
+    }
+
+    /// <summary>
+    /// Backward-compatible captcha endpoint for integrations expecting /api/security/captcha.
+    /// </summary>
+    [HttpGet("/api/security/captcha")]
+    [RequireApiKey]
+    public IActionResult GetCaptchaChallengeLegacy()
+    {
+        return GetCaptchaChallenge();
+    }
+
+    /// <summary>
+    /// Backward-compatible CSRF endpoint for integrations expecting /api/security/csrf.
+    /// </summary>
+    [HttpGet("/api/security/csrf")]
+    [RequireApiKey]
+    public IActionResult GetCsrfTokenLegacy()
+    {
+        try
+        {
+            var token = Guid.NewGuid().ToString("N") + Guid.NewGuid().ToString("N");
+            return HandleSuccess("Csrf token created", new
+            {
+                csrfToken = token
+            });
+        }
+        catch (Exception ex)
+        {
+            return HandleError($"Failed to create csrf token: {ex.Message}", 500);
+        }
+    }
+
+    /// <summary>
     /// Create a new enquiry - Requires API Key authentication
     /// </summary>
     [HttpPost]
@@ -48,14 +102,28 @@ public class EnquiriesController : BaseController
             // Security validation for website source
             if (request.Source?.ToLower() == "website")
             {
-                // Validate CAPTCHA
-                if (string.IsNullOrWhiteSpace(request.CaptchaToken))
-                {
-                    return HandleError("CAPTCHA token is required for website enquiries", 400);
-                }
+                // Validate custom CAPTCHA first; fall back to token-based CAPTCHA for compatibility.
+                var hasCustomCaptcha = !string.IsNullOrWhiteSpace(request.CaptchaId) &&
+                                       !string.IsNullOrWhiteSpace(request.CaptchaAnswer);
+                bool captchaValid;
 
-                var remoteIp = HttpContext.Connection.RemoteIpAddress?.ToString();
-                var captchaValid = await _securityService.ValidateCaptchaAsync(request.CaptchaToken, remoteIp);
+                if (hasCustomCaptcha)
+                {
+                    captchaValid = _securityService.ValidateCustomCaptchaAnswer(
+                        request.CaptchaId!,
+                        request.CaptchaAnswer!
+                    );
+                }
+                else if (!string.IsNullOrWhiteSpace(request.CaptchaToken))
+                {
+                    var remoteIp = HttpContext.Connection.RemoteIpAddress?.ToString();
+                    captchaValid = await _securityService.ValidateCaptchaAsync(request.CaptchaToken, remoteIp);
+                }
+                else
+                {
+                    return HandleError("CAPTCHA is required for website enquiries", 400);
+                }
+                
                 if (!captchaValid)
                 {
                     return HandleError("CAPTCHA validation failed", 400);

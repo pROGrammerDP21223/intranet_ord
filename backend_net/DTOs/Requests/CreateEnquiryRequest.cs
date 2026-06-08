@@ -33,6 +33,8 @@ public class CreateEnquiryRequest
 
     // Security fields for website source
     public string? CaptchaToken { get; set; } // For CAPTCHA validation
+    public string? CaptchaId { get; set; } // For custom CAPTCHA challenge
+    public string? CaptchaAnswer { get; set; } // For custom CAPTCHA answer
     public string? CsrfToken { get; set; } // For CSRF validation
     public string? Honeypot { get; set; } // Honeypot field (should be empty)
 }
